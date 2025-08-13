@@ -7,10 +7,13 @@
     "contact": "Kontak"
   },
   "hero": {
-    "title": "Saya Alif, Partner Fullstack Developer Anda Untuk Membangun Aplikasi Modern",
-    "subtitle": "Bersemangat menciptakan solusi web dan mobile yang scalable dari frontend hingga backend",
+    "greeting": "Halo...",
+    "title": "Saya Alif. Partner Anda Untuk Membangun Aplikasi Modern",
+    "role": "Seorang Fullstack Developer",
+    "description": "berlokasi di Bogor, Jawa Barat. Saya berusaha membangun aplikasi web dan mobile yang scalable dan efisien melalui solusi teknologi modern yang dibuat dengan teliti.",
     "cta": "Mari Bekerja Sama",
-    "viewWork": "Lihat Karya Saya"
+    "viewWork": "Lihat Karya Saya",
+    "scrollDown": "Gulir ke Bawah"
   },
   "about": {
     "title": "Tentang Saya",

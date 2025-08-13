@@ -7,10 +7,13 @@
     "contact": "Contact"
   },
   "hero": {
-    "title": "I'm Alif, Your Fullstack Developer Partner For Building Modern Applications",
-    "subtitle": "Passionate about creating scalable web and mobile solutions from frontend to backend",
+    "greeting": "Hello There...",
+    "title": "I'm Alif. Your Partner For Building Modern Applications",
+    "role": "A Fullstack Developer",
+    "description": "based in Bogor, West Java. I strives to build scalable and efficient web and mobile applications through carefully crafted modern technology solutions.",
     "cta": "Let's Work Together",
-    "viewWork": "View My Work"
+    "viewWork": "View My Work",
+    "scrollDown": "Scroll Down"
   },
   "about": {
     "title": "About Me",

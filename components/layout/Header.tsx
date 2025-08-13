@@ -7,13 +7,7 @@ import { useState } from "react";
 
 import LanguageSwitcher from "@/components/common/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 import Navigation from "./Navigation";
 
@@ -41,7 +35,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="dark fixed top-0 z-50 w-full border-b border-border bg-background/90 backdrop-blur-sm dark:border-border dark:bg-background/90">
+    <header className="bg-header-hero dark fixed top-0 z-50 w-full border-b border-white/5 backdrop-blur-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Left: Navigation Menu */}
@@ -50,10 +44,10 @@ export default function Header() {
           </div>
 
           {/* Center: Brand Name */}
-          <div className="flex items-center justify-center">
+          <div className="flex flex-1 items-center justify-center lg:flex-none">
             <Link
               href="/"
-              className="text-xl font-bold tracking-wider text-foreground transition-colors hover:text-primary"
+              className="text-xl font-bold tracking-wider text-white transition-colors hover:text-primary"
             >
               ALIFDWT
             </Link>
@@ -69,14 +63,14 @@ export default function Header() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-8 w-8 items-center justify-center rounded-full bg-muted text-muted-foreground transition-all duration-200 hover:bg-muted/50 hover:text-foreground"
+                  className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-gray-400 transition-all duration-200 hover:bg-white/20 hover:text-white"
                 >
-                  <Icon fill="white" strokeWidth={0} className="h-4 w-4" />
+                  <Icon className="h-4 w-4" />
                   <span className="sr-only">{social.label}</span>
                 </Link>
               );
             })}
-            <div className="mx-2 h-6 w-px bg-border" />
+            <div className="mx-2 h-6 w-px bg-white/20" />
             <LanguageSwitcher dark />
           </div>
 
@@ -88,7 +82,7 @@ export default function Header() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="text-foreground hover:bg-accent hover:text-primary"
+                  className="text-white hover:bg-white/10 hover:text-primary"
                 >
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Toggle menu</span>
@@ -96,12 +90,9 @@ export default function Header() {
               </SheetTrigger>
               <SheetContent
                 side="right"
-                className="w-[300px] border-border bg-background"
+                className="bg-header-hero w-[300px] border-white/10"
               >
-                <SheetHeader>
-                  <SheetTitle>Menu</SheetTitle>
-                </SheetHeader>
-                <div className="flex flex-col space-y-6 px-4">
+                <div className="mt-8 flex flex-col space-y-6">
                   <Navigation
                     items={navItems}
                     mobile
@@ -110,8 +101,8 @@ export default function Header() {
                   />
 
                   {/* Mobile Social Links */}
-                  <div className="border-t border-border pt-6">
-                    <p className="mb-4 text-sm text-muted-foreground">
+                  <div className="border-t border-white/10 pt-6">
+                    <p className="mb-4 text-sm text-gray-400">
                       Connect with me
                     </p>
                     <div className="grid grid-cols-4 gap-3">
@@ -123,7 +114,7 @@ export default function Header() {
                             href={social.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex h-10 w-10 items-center justify-center rounded-full bg-muted/20 text-muted-foreground transition-all duration-200 hover:bg-muted/30 hover:text-foreground"
+                            className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-gray-400 transition-all duration-200 hover:bg-white/20 hover:text-white"
                             title={social.label}
                           >
                             <Icon className="h-4 w-4" />

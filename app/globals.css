@@ -172,7 +172,94 @@ body {
   }
 }
 
-/* Tambahkan ke globals.css */
+.bg-hero-pattern {
+  background-color: hsl(240 10% 3.9%);
+  background-image: radial-gradient(
+    circle,
+    hsl(0 0% 100% / 0.06) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-hero-pattern::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at 20% 30%,
+      hsl(89 69% 62% / 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      hsl(89 69% 62% / 0.06) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 90%,
+      hsl(89 69% 62% / 0.05) 0%,
+      transparent 50%
+    );
+  filter: blur(60px);
+  z-index: 0;
+}
+
+.bg-hero-pattern > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Seamless connection header to hero */
+.bg-header-hero {
+  background-color: hsl(240 10% 3.9%);
+  background-image: radial-gradient(
+    circle,
+    hsl(0 0% 100% / 0.06) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+}
+
+/* Alternative dengan grid lines yang lebih terlihat */
+.bg-grid-pattern {
+  background-color: hsl(240 10% 3.9%);
+  background-image: linear-gradient(hsl(0 0% 100% / 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(0 0% 100% / 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+  position: relative;
+}
+
+.bg-grid-pattern::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at 25% 25%,
+      hsl(89 69% 62% / 0.04) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      hsl(89 69% 62% / 0.03) 0%,
+      transparent 60%
+    );
+  filter: blur(40px);
+  z-index: 0;
+}
+
+.bg-grid-pattern > * {
+  position: relative;
+  z-index: 1;
+}
 
 /* Dotted background pattern */
 .bg-dotted-pattern {
