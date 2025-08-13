@@ -1,0 +1,81 @@
+{
+  "navigation": {
+    "home": "Beranda",
+    "about": "Tentang",
+    "services": "Layanan",
+    "portfolio": "Portofolio",
+    "contact": "Kontak"
+  },
+  "hero": {
+    "title": "Saya Alif, Partner Fullstack Developer Anda Untuk Membangun Aplikasi Modern",
+    "subtitle": "Bersemangat menciptakan solusi web dan mobile yang scalable dari frontend hingga backend",
+    "cta": "Mari Bekerja Sama",
+    "viewWork": "Lihat Karya Saya"
+  },
+  "about": {
+    "title": "Tentang Saya",
+    "subtitle": "Saya Spesialis Mengubah Visi Menjadi Kenyataan Dengan Pengalaman Saya",
+    "description": "Saya adalah Fullstack Developer yang hasil-driven dan passionate dalam membangun aplikasi yang cepat, accessible, dan user-friendly. Dengan pengalaman di teknologi modern dan environment production."
+  },
+  "services": {
+    "title": "Layanan Saya",
+    "subtitle": "Apa Yang Saya Lakukan",
+    "frontend": {
+      "title": "Frontend Development",
+      "description": "Membangun interface responsive dan user-friendly dengan framework modern"
+    },
+    "backend": {
+      "title": "Backend Development",
+      "description": "Aplikasi server-side yang scalable dan API yang robust"
+    },
+    "mobile": {
+      "title": "Mobile Development",
+      "description": "Aplikasi mobile cross-platform dengan performa native"
+    },
+    "devops": {
+      "title": "DevOps",
+      "description": "Otomasi deployment dan manajemen infrastruktur"
+    },
+    "data": {
+      "title": "Analisis Data",
+      "description": "Insights data dan visualisasi yang indah"
+    }
+  },
+  "portfolio": {
+    "title": "Proyek Unggulan",
+    "subtitle": "Mengubah Ide Menjadi Aplikasi Siap Produksi",
+    "viewProject": "Lihat Proyek",
+    "viewCode": "Lihat Kode"
+  },
+  "contact": {
+    "title": "Mari Lihat Apakah Kita Cocok Dengan Panggilan 15 Menit",
+    "cta": "♦ Hubungi Saya ♦",
+    "email": "Kirim Email",
+    "downloadCV": "Unduh CV"
+  },
+  "footer": {
+    "links": {
+      "home": "Beranda",
+      "aboutMe": "Tentang Saya",
+      "myServices": "Layanan Saya",
+      "recentProject": "Proyek Terbaru",
+      "faqs": "FAQ",
+      "page404": "Halaman 404",
+      "styleGuide": "Panduan Gaya",
+      "changelog": "Log Perubahan",
+      "license": "Lisensi"
+    },
+    "social": {
+      "behance": "Behance",
+      "dribbble": "Dribbble",
+      "linkedin": "LinkedIn"
+    },
+    "contact": {
+      "email": "aputradewantara@gmail.com",
+      "phone": "+62-822-6111-0048"
+    },
+    "copyright": "Hak Cipta © Alif Dewantara",
+    "designedBy": "Dirancang oleh Alif Studio",
+    "poweredBy": "Didukung oleh Next.js"
+  }
+}

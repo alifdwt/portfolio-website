@@ -1,0 +1,81 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "I'm Alif, Your Fullstack Developer Partner For Building Modern Applications",
+    "subtitle": "Passionate about creating scalable web and mobile solutions from frontend to backend",
+    "cta": "Let's Work Together",
+    "viewWork": "View My Work"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "I Specialize In Turning Vision Into Reality With My Experience",
+    "description": "I'm a results-driven Fullstack Developer passionate about building fast, accessible, and user-friendly applications. With experience in modern technologies and production environments."
+  },
+  "services": {
+    "title": "My Services",
+    "subtitle": "What I Do",
+    "frontend": {
+      "title": "Frontend Development",
+      "description": "Building responsive, user-friendly interfaces with modern frameworks"
+    },
+    "backend": {
+      "title": "Backend Development",
+      "description": "Scalable server-side applications and robust APIs"
+    },
+    "mobile": {
+      "title": "Mobile Development",
+      "description": "Cross-platform mobile applications with native performance"
+    },
+    "devops": {
+      "title": "DevOps",
+      "description": "Deployment automation and infrastructure management"
+    },
+    "data": {
+      "title": "Data Analysis",
+      "description": "Data insights and beautiful visualizations"
+    }
+  },
+  "portfolio": {
+    "title": "Featured Projects",
+    "subtitle": "Transforming Ideas Into Production-Ready Applications",
+    "viewProject": "View Project",
+    "viewCode": "View Code"
+  },
+  "contact": {
+    "title": "Let's See If We're A Good Fit With A 15 Min Call",
+    "cta": "♦ Book A Call ♦",
+    "email": "Send Email",
+    "downloadCV": "Download CV"
+  },
+  "footer": {
+    "links": {
+      "home": "Home",
+      "aboutMe": "About Me",
+      "myServices": "My Services",
+      "recentProject": "Recent Project",
+      "faqs": "FAQs",
+      "page404": "404 Page",
+      "styleGuide": "Style Guide",
+      "changelog": "Changelog",
+      "license": "License"
+    },
+    "social": {
+      "behance": "Behance",
+      "dribbble": "Dribbble",
+      "linkedin": "LinkedIn"
+    },
+    "contact": {
+      "email": "aputradewantara@gmail.com",
+      "phone": "+62-822-6111-0048"
+    },
+    "copyright": "Copyrights © Alif Dewantara",
+    "designedBy": "Designed by Alif Studio",
+    "poweredBy": "Powered By Next.js"
+  }
+}

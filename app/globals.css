@@ -1,26 +1,341 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Warna Dasar (Light Mode) */
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(240 10% 3.9%);
+
+  /* Warna Kartu & Popover */
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(240 10% 3.9%);
+
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(240 10% 3.9%);
+
+  /* Warna Primer (Aksen) - Hijau Pastel */
+  --primary: hsl(89, 69%, 62%);
+  --primary-foreground: hsl(240 10% 3.9%);
+
+  /* Warna Sekunder & Muted (Abu-abu Muda) */
+  --secondary: hsl(240 4.8% 95.9%);
+  --secondary-foreground: hsl(240 5.9% 10%);
+
+  --muted: hsl(240 4.8% 95.9%);
+  --muted-foreground: hsl(240 3.8% 46.1%);
+
+  /* Warna Aksen (Tombol Lain/Garisan) */
+  --accent: hsl(240 4.8% 95.9%);
+  --accent-foreground: hsl(240 5.9% 10%);
+
+  /* Warna Destruktif */
+  --destructive: hsl(0 84.2% 60.2%);
+  --destructive-foreground: hsl(0 0% 98%);
+
+  /* Border & Input */
+  --border: hsl(240 5.9% 90%);
+  --input: hsl(240 5.9% 90%);
+  --ring: hsl(240 4.9% 83.9%);
+
+  /* Sidebar */
+  --sidebar: hsl(0 0% 100%);
+  --sidebar-foreground: hsl(240 10% 3.9%);
+  --sidebar-primary: hsl(145 63% 76%);
+  --sidebar-primary-foreground: hsl(240 10% 3.9%);
+  --sidebar-accent: hsl(240 4.8% 95.9%);
+  --sidebar-accent-foreground: hsl(240 5.9% 10%);
+  --sidebar-border: hsl(240 5.9% 90%);
+  --sidebar-ring: hsl(240 4.9% 83.9%);
+
+  --radius: 0.5rem;
+}
+
+.dark {
+  /* Warna Dasar (Dark Mode) - Untuk bagian header & footer */
+  --background: hsl(240 10% 3.9%);
+  --foreground: hsl(0 0% 98%);
+
+  /* Warna Kartu & Popover */
+  --card: hsl(240 10% 3.9%);
+  --card-foreground: hsl(0 0% 98%);
+
+  --popover: hsl(240 10% 3.9%);
+  --popover-foreground: hsl(0 0% 98%);
+
+  /* Warna Primer (Aksen) - Hijau Pastel */
+  --primary: hsl(89, 69%, 62%);
+  --primary-foreground: hsl(240 10% 3.9%);
+
+  /* Warna Sekunder & Muted */
+  --secondary: hsl(240 3.7% 15.9%);
+  --secondary-foreground: hsl(0 0% 98%);
+
+  --muted: hsl(240 3.7% 15.9%);
+  --muted-foreground: hsl(240 5% 64.9%);
+
+  /* Warna Aksen */
+  --accent: hsl(240 3.7% 15.9%);
+  --accent-foreground: hsl(0 0% 98%);
+
+  /* Warna Destruktif */
+  --destructive: hsl(0 62.8% 30.6%);
+  --destructive-foreground: hsl(0 0% 98%);
+
+  /* Border & Input */
+  --border: hsl(240 3.7% 15.9%);
+  --input: hsl(240 3.7% 15.9%);
+  --ring: hsl(240 4.9% 83.9%);
+
+  /* Sidebar (Jika ada) */
+  --sidebar: hsl(240 10% 3.9%);
+  --sidebar-foreground: hsl(0 0% 98%);
+  --sidebar-primary: hsl(145 63% 76%);
+  --sidebar-primary-foreground: hsl(240 10% 3.9%);
+  --sidebar-accent: hsl(240 3.7% 15.9%);
+  --sidebar-accent-foreground: hsl(0 0% 98%);
+  --sidebar-border: hsl(240 3.7% 15.9%);
+  --sidebar-ring: hsl(240 4.9% 83.9%);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-serif: var(--font-serif);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --shadow-2xs: var(--shadow-2xs);
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow: var(--shadow);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-2xl: var(--shadow-2xl);
+
+  --tracking-tighter: calc(var(--tracking-normal) - 0.05em);
+  --tracking-tight: calc(var(--tracking-normal) - 0.025em);
+  --tracking-normal: var(--tracking-normal);
+  --tracking-wide: calc(var(--tracking-normal) + 0.025em);
+  --tracking-wider: calc(var(--tracking-normal) + 0.05em);
+  --tracking-widest: calc(var(--tracking-normal) + 0.1em);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: var(--tracking-normal);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Tambahkan ke globals.css */
+
+/* Dotted background pattern */
+.bg-dotted-pattern {
+  background-color: hsl(var(--background));
+  background-image: radial-gradient(
+    circle,
+    hsl(var(--muted-foreground) / 0.3) 1px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
+  position: relative;
+}
+
+/* Dark variant untuk contact/footer */
+.bg-dotted-dark {
+  background-color: hsl(240 10% 3.9%);
+  background-image: radial-gradient(
+    circle,
+    hsl(0 0% 100% / 0.1) 1px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
+  position: relative;
+}
+
+/* Primary glow effect */
+.bg-primary-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-primary-glow::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(
+    circle,
+    hsl(89 69% 62% / 0.3) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+}
+
+.bg-primary-glow::after {
+  content: "";
+  position: absolute;
+  bottom: 30%;
+  right: 15%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    hsl(89 69% 62% / 0.2) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 0;
+}
+
+/* Ensure content is above the glow effects */
+.bg-primary-glow > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Combined effect */
+.bg-dotted-glow {
+  background-color: hsl(240 10% 3.9%);
+  background-image: radial-gradient(
+    circle,
+    hsl(0 0% 100% / 0.08) 1px,
+    transparent 1px
+  );
+  background-size: 25px 25px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-dotted-glow::before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(
+    circle,
+    hsl(89 69% 62% / 0.15) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(60px);
+  z-index: 0;
+}
+
+.bg-dotted-glow::after {
+  content: "";
+  position: absolute;
+  bottom: 20%;
+  right: 10%;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(
+    circle,
+    hsl(89 69% 62% / 0.2) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(40px);
+  z-index: 0;
+}
+
+.bg-dotted-glow > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Alternative dengan lebih banyak glow spots */
+.bg-contact-footer {
+  background-color: hsl(240 10% 3.9%);
+  background-image: radial-gradient(
+    circle,
+    hsl(0 0% 100% / 0.06) 1.5px,
+    transparent 1.5px
+  );
+  background-size: 30px 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-contact-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at 20% 30%,
+      hsl(89 69% 62% / 0.12) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      hsl(89 69% 62% / 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 90%,
+      hsl(89 69% 62% / 0.1) 0%,
+      transparent 50%
+    );
+  filter: blur(40px);
+  z-index: 0;
+}
+
+.bg-contact-footer > * {
+  position: relative;
+  z-index: 1;
 }
