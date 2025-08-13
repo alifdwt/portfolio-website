@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+
 import { cn } from "@/lib/utils";
 
 interface NavItem {
@@ -68,7 +69,7 @@ export default function Navigation({
     return (
       <nav className="flex flex-col space-y-4">
         {items.map((item) => {
-          const isActive = activeSection === item.href.replace("#", "");
+          // const isActive = activeSection === item.href.replace("#", "");
           return (
             <button
               key={item.href}
@@ -106,7 +107,7 @@ export default function Navigation({
           >
             {item.label}
             {isActive && (
-              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full" />
+              <span className="absolute -bottom-1 left-0 h-0.5 w-full rounded-full bg-primary" />
             )}
           </button>
         );

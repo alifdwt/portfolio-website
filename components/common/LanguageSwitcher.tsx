@@ -1,18 +1,17 @@
 // components/common/LanguageSwitcher.tsx
 "use client";
 
-import { useLocale } from "next-intl";
-import { useRouter, usePathname } from "next/navigation";
-import { Button } from "@/components/ui/button";
 import { Globe } from "lucide-react";
+import { useRouter, usePathname } from "next/navigation";
+import { useLocale } from "next-intl";
+
+import { Button } from "@/components/ui/button";
 
 interface LanguageSwitcherProps {
   dark?: boolean;
 }
 
-export default function LanguageSwitcher({
-  dark = false,
-}: LanguageSwitcherProps) {
+export default function LanguageSwitcher({}: LanguageSwitcherProps) {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -25,9 +24,6 @@ export default function LanguageSwitcher({
 
     // Add new locale
     const newPath = `/${newLocale}${pathWithoutLocale}`;
-    // newLocale === "en"
-    //   ? pathWithoutLocale
-    //   : `/${newLocale}${pathWithoutLocale}`;
 
     router.push(newPath);
   };
@@ -37,7 +33,7 @@ export default function LanguageSwitcher({
       variant="ghost"
       size="sm"
       onClick={switchLanguage}
-      className="flex items-center space-x-1 text-sm text-muted-foreground hover:text-foreground hover:bg-accent"
+      className="flex items-center space-x-1 text-sm text-muted-foreground hover:bg-accent hover:text-foreground"
     >
       <Globe className="h-4 w-4" />
       <span className="font-medium">{locale === "en" ? "ID" : "EN"}</span>

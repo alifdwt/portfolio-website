@@ -1,12 +1,14 @@
 // app/[locale]/layout.tsx
-import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
-import { notFound } from "next/navigation";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { notFound } from "next/navigation";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+
+import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
+import { routing } from "@/i18n/routing";
+
 import "../globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
