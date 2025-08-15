@@ -44,7 +44,7 @@ export default function Header() {
           </div>
 
           {/* Center: Brand Name */}
-          <div className="flex flex-1 items-center justify-center lg:flex-none">
+          <div className="flex items-center justify-center lg:flex-none">
             <Link
               href="/"
               className="text-xl font-bold tracking-wider text-white transition-colors hover:text-primary"
