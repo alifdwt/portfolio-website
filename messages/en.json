@@ -18,7 +18,6 @@
   "companies": {
     "title": "A Trusted Partner For Educational Institutions, Insurance & Tech Companies"
   },
-
   "about": {
     "badge": "ABOUT ME",
     "title": "I Specialize In Turning Vision Into Reality With My Experience",
@@ -110,7 +109,6 @@
       {
         "number": "01",
         "title": "Frontend Development",
-        "image": "/images/profile/profile-podcast.jpg",
         "tags": ["Next.js", "React", "TypeScript", "Tailwind CSS"],
         "description": "Building responsive, user-friendly interfaces with modern frameworks and cutting-edge technologies.",
         "details": "I specialize in creating dynamic, interactive web applications using Next.js and React. My expertise includes server-side rendering (SSR), static site generation (SSG), and building component-based architectures. I ensure every interface is mobile-first, accessible, and optimized for performance. From complex dashboards to sleek landing pages, I deliver pixel-perfect implementations that users love to interact with."
@@ -146,10 +144,128 @@
     ]
   },
   "portfolio": {
-    "title": "Featured Projects",
-    "subtitle": "Transforming Ideas Into Production-Ready Applications",
+    "badge": "My Recent Projects",
+    "title": "Discover My Recent Projects & Success Stories",
     "viewProject": "View Project",
-    "viewCode": "View Code"
+    "viewCode": "View Code",
+    "letsChat": "Let's Chat",
+    "projects": [
+      {
+        "id": "haiwan",
+        "categories": ["E-Commerce", "Web App", "Next.js"],
+        "title": "Haiwan",
+        "subtitle": "Pet & Livestock E-Commerce Platform",
+        "description": "Haiwan is an innovative web platform tailored for pet owners and livestock enthusiasts. It specializes in offering a diverse range of products specifically tailored to cater to the needs of pets and livestock.",
+        "timeline": "Project Timeline • (10/09/2024 - 05/11/2024)",
+        "technologies": [
+          "Next.js 14",
+          "MongoDB",
+          "Shadcn UI",
+          "Tailwind CSS",
+          "Next Auth"
+        ],
+        "images": [
+          "/images/projects/haiwan/haiwan-1.jpg",
+          "/images/projects/haiwan/haiwan-2.jpg"
+        ],
+        "githubUrl": "https://github.com/alifdwt/haiwan-web",
+        "liveUrl": "https://haiwan.vercel.app",
+        "backgroundColor": "bg-green-50"
+      },
+      {
+        "id": "ppdb-bogor",
+        "categories": ["Data Analysis", "Dashboard", "R Shiny"],
+        "title": "PPDB Bogor",
+        "subtitle": "Student Admission Analytics Dashboard",
+        "description": "This web-based dashboard serves as a comprehensive reporting tool for Bogor's Student Admission System (PPDB) focusing on junior high school enrollment. Built using R programming with detailed insights and visualizations.",
+        "timeline": "Project Timeline • (01/08/2023 - 15/09/2023)",
+        "technologies": [
+          "R",
+          "Shiny Apps",
+          "Python",
+          "Pandas",
+          "Data Visualization",
+          "RStudio"
+        ],
+        "images": [
+          "/images/projects/ppdb/ppdb-1.png",
+          "/images/projects/ppdb/ppdb-2.png"
+        ],
+        "githubUrl": "https://github.com/alifdwt/PPDB-Bogor",
+        "liveUrl": "https://alif-dewantara.shinyapps.io/PPDB-Bogor_ShinyApp/",
+        "backgroundColor": "bg-purple-50"
+      },
+      {
+        "id": "circle",
+        "categories": ["Social Media", "Full Stack", "Mobile"],
+        "title": "Circle",
+        "subtitle": "Social Networking Platform",
+        "description": "Circle is a versatile social networking platform, available on both web and mobile devices, designed to connect users through concise messages, discussions, and real-time updates. Similar to Twitter functionality.",
+        "timeline": "Project Timeline • (15/03/2023 - 20/05/2023)",
+        "technologies": [
+          "React.js",
+          "React Native",
+          "Express.js",
+          "PostgreSQL",
+          "Chakra UI",
+          "TypeORM"
+        ],
+        "images": [
+          "/images/projects/circle/circle-1.jpg",
+          "/images/projects/circle/circle-2.jpg"
+        ],
+        "githubUrl": "https://github.com/alifdwt/threads-circle",
+        "liveUrl": null,
+        "backgroundColor": "bg-orange-50"
+      },
+      {
+        "id": "trivia-game",
+        "categories": ["Mobile App", "Game", "React Native"],
+        "title": "Trivia Game",
+        "subtitle": "Geography Quiz Mobile App",
+        "description": "Trivia Game is a captivating mobile application centered around geography-themed quizzes, crafted using React Native. Complementing this engaging app is a web-based admin panel developed on Laravel.",
+        "timeline": "Project Timeline • (10/01/2023 - 28/02/2023)",
+        "technologies": [
+          "React Native",
+          "Laravel PHP",
+          "PostgreSQL",
+          "Bootstrap",
+          "TypeORM",
+          "NativeBase"
+        ],
+        "images": [
+          "/images/projects/trivia/trivia-1.jpg",
+          "/images/projects/trivia/trivia-2.jpg"
+        ],
+        "githubUrl": "https://github.com/FathanMK/Trivia-Game",
+        "liveUrl": null,
+        "backgroundColor": "bg-blue-50"
+      },
+      {
+        "id": "spotify-indo",
+        "categories": ["Data Visualization", "Analytics", "Python"],
+        "title": "Spotify Indonesia",
+        "subtitle": "Music Data Insights & Visualization",
+        "description": "This project revolves around visualizing Spotify data pertaining to Indonesia using the Tidyverse package in R. Leveraging Python's Spotipy package for data retrieval, focusing on uncovering musical trends.",
+        "timeline": "Project Timeline • (05/12/2022 - 20/01/2023)",
+        "technologies": [
+          "Python",
+          "R",
+          "Pandas",
+          "ggplot2",
+          "Spotipy",
+          "Tidyverse",
+          "BeautifulSoup"
+        ],
+        "images": [
+          "/images/projects/spotify/spotify-1.png",
+          "/images/projects/spotify/spotify-2.png"
+        ],
+        "githubUrl": "https://github.com/alifdwt/Visualif",
+        "liveUrl": null,
+        "backgroundColor": "bg-yellow-50"
+      }
+    ]
   },
   "contact": {
     "title": "Let's See If We're A Good Fit With A 15 Min Call",

@@ -144,10 +144,128 @@
     ]
   },
   "portfolio": {
-    "title": "Proyek Unggulan",
-    "subtitle": "Mengubah Ide Menjadi Aplikasi Siap Produksi",
+    "badge": "Proyek Terbaru Saya",
+    "title": "Temukan Proyek Terbaru & Kisah Sukses Saya",
     "viewProject": "Lihat Proyek",
-    "viewCode": "Lihat Kode"
+    "viewCode": "Lihat Kode",
+    "letsChat": "Mari Ngobrol",
+    "projects": [
+      {
+        "id": "haiwan",
+        "categories": ["E-Commerce", "Aplikasi Web", "Next.js"],
+        "title": "Haiwan",
+        "subtitle": "Platform E-Commerce Hewan Peliharaan & Ternak",
+        "description": "Haiwan adalah platform web inovatif yang dirancang khusus untuk pemilik hewan peliharaan dan penggemar ternak. Platform ini mengkhususkan diri dalam menawarkan beragam produk yang disesuaikan untuk memenuhi kebutuhan hewan peliharaan dan ternak.",
+        "timeline": "Timeline Proyek • (10/09/2024 - 05/11/2024)",
+        "technologies": [
+          "Next.js 14",
+          "MongoDB",
+          "Shadcn UI",
+          "Tailwind CSS",
+          "Next Auth"
+        ],
+        "images": [
+          "/images/projects/haiwan/haiwan-1.jpg",
+          "/images/projects/haiwan/haiwan-2.jpg"
+        ],
+        "githubUrl": "https://github.com/alifdwt/haiwan-web",
+        "liveUrl": "https://haiwan.vercel.app",
+        "backgroundColor": "bg-green-50"
+      },
+      {
+        "id": "ppdb-bogor",
+        "categories": ["Analisis Data", "Dashboard", "R Shiny"],
+        "title": "PPDB Bogor",
+        "subtitle": "Dashboard Analitik Penerimaan Siswa",
+        "description": "Dashboard berbasis web ini berfungsi sebagai alat pelaporan komprehensif untuk Sistem Penerimaan Peserta Didik Baru (PPDB) Bogor yang berfokus pada pendaftaran SMP. Dibangun menggunakan pemrograman R dengan insights dan visualisasi yang detail.",
+        "timeline": "Timeline Proyek • (01/08/2023 - 15/09/2023)",
+        "technologies": [
+          "R",
+          "Shiny Apps",
+          "Python",
+          "Pandas",
+          "Visualisasi Data",
+          "RStudio"
+        ],
+        "images": [
+          "/images/projects/ppdb/ppdb-1.png",
+          "/images/projects/ppdb/ppdb-2.png"
+        ],
+        "githubUrl": "https://github.com/alifdwt/PPDB-Bogor",
+        "liveUrl": "https://alif-dewantara.shinyapps.io/PPDB-Bogor_ShinyApp/",
+        "backgroundColor": "bg-purple-50"
+      },
+      {
+        "id": "circle",
+        "categories": ["Media Sosial", "Full Stack", "Mobile"],
+        "title": "Circle",
+        "subtitle": "Platform Jejaring Sosial",
+        "description": "Circle adalah platform jejaring sosial yang serbaguna, tersedia di perangkat web dan mobile, dirancang untuk menghubungkan pengguna melalui pesan singkat, diskusi, dan update real-time. Mirip dengan fungsionalitas Twitter.",
+        "timeline": "Timeline Proyek • (15/03/2023 - 20/05/2023)",
+        "technologies": [
+          "React.js",
+          "React Native",
+          "Express.js",
+          "PostgreSQL",
+          "Chakra UI",
+          "TypeORM"
+        ],
+        "images": [
+          "/images/projects/circle/circle-1.jpg",
+          "/images/projects/circle/circle-2.jpg"
+        ],
+        "githubUrl": "https://github.com/alifdwt/threads-circle",
+        "liveUrl": null,
+        "backgroundColor": "bg-orange-50"
+      },
+      {
+        "id": "trivia-game",
+        "categories": ["Aplikasi Mobile", "Game", "React Native"],
+        "title": "Trivia Game",
+        "subtitle": "Aplikasi Mobile Kuis Geografi",
+        "description": "Trivia Game adalah aplikasi mobile yang menarik yang berpusat pada kuis bertema geografi, dibuat menggunakan React Native. Melengkapi aplikasi yang menarik ini adalah panel admin berbasis web yang dikembangkan di Laravel.",
+        "timeline": "Timeline Proyek • (10/01/2023 - 28/02/2023)",
+        "technologies": [
+          "React Native",
+          "Laravel PHP",
+          "PostgreSQL",
+          "Bootstrap",
+          "TypeORM",
+          "NativeBase"
+        ],
+        "images": [
+          "/images/projects/trivia/trivia-1.jpg",
+          "/images/projects/trivia/trivia-2.jpg"
+        ],
+        "githubUrl": "https://github.com/FathanMK/Trivia-Game",
+        "liveUrl": null,
+        "backgroundColor": "bg-blue-50"
+      },
+      {
+        "id": "spotify-indo",
+        "categories": ["Visualisasi Data", "Analitik", "Python"],
+        "title": "Spotify Indonesia",
+        "subtitle": "Insights & Visualisasi Data Musik",
+        "description": "Proyek ini berkisar pada visualisasi data Spotify yang berkaitan dengan Indonesia menggunakan paket Tidyverse di R. Memanfaatkan paket Spotipy Python untuk pengambilan data, berfokus pada mengungkap tren musik.",
+        "timeline": "Timeline Proyek • (05/12/2022 - 20/01/2023)",
+        "technologies": [
+          "Python",
+          "R",
+          "Pandas",
+          "ggplot2",
+          "Spotipy",
+          "Tidyverse",
+          "BeautifulSoup"
+        ],
+        "images": [
+          "/images/projects/spotify/spotify-1.png",
+          "/images/projects/spotify/spotify-2.png"
+        ],
+        "githubUrl": "https://github.com/alifdwt/Visualif",
+        "liveUrl": null,
+        "backgroundColor": "bg-yellow-50"
+      }
+    ]
   },
   "contact": {
     "title": "Mari Lihat Apakah Kita Cocok Dengan Panggilan 15 Menit",
