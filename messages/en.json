@@ -18,10 +18,88 @@
   "companies": {
     "title": "A Trusted Partner For Educational Institutions & Tech Companies"
   },
+
   "about": {
-    "title": "About Me",
-    "subtitle": "I Specialize In Turning Vision Into Reality With My Experience",
-    "description": "I'm a results-driven Fullstack Developer passionate about building fast, accessible, and user-friendly applications. With experience in modern technologies and production environments."
+    "badge": "ABOUT ME",
+    "title": "I Specialize In Turning Vision Into Reality With My Experience",
+    "tabs": {
+      "workExperience": "Work Experience",
+      "myEducation": "My Education"
+    },
+    "profileImage": {
+      "selfIntroduction": "Self Introduction",
+      "subtitle": "Meet A Value-Driven Creative Individual",
+      "playButton": "Play Now"
+    },
+    "workExperience": {
+      "companies": [
+        {
+          "name": "PT. Digital Niaga Internasional",
+          "period": "June 2024 - August 2025",
+          "positions": [
+            {
+              "title": "Software Engineer",
+              "period": "May 2025 - Aug 2025",
+              "description": "I led the development of a company-wide Single Sign-On solution, solo. Built with Next.js (SSR), Golang Fiber, and PostgreSQL, this system unified logins across multiple internal tools, inspired by Mekari's account platform. Along the way, I also contributed to Xperd, our in-house ERP system equivalent to Mekari Jurnal. From writing the first line of code to deploying on our VPS with Docker and GitHub Actions, I owned the entire process."
+            },
+            {
+              "title": "Frontend Web Developer",
+              "period": "Mar 2025 - May 2025",
+              "description": "Next came a project for Universitas Siber Asia, where we built three integrated web apps: an LMS, an academic portal, and an SSO system. Using Next.js (TypeScript) and Bootstrap 5, I ensured every screen was mobile-friendly and consistent with the university's branding. Our goal was ambitious: to reduce reliance on an expensive third-party edtech service costing ~IDR 40M/month."
+            },
+            {
+              "title": "Frontend Developer",
+              "period": "Jun 2024 - Mar 2025",
+              "description": "One of my first challenges was helping Binasentra Purna move away from a slow, outdated insurance management platform. From a blank repository, I built the entire frontend in Next.js (TypeScript) with Tailwind CSS, transforming Figma designs into responsive, accessible, and fast-loading pages. Working closely with the Golang backend team, we connected every core feature and deployed it through Docker and GitHub Actions."
+            }
+          ]
+        },
+        {
+          "name": "PT. Dumbways Indonesia Teknologi",
+          "period": "August 2023 - May 2024",
+          "positions": [
+            {
+              "title": "Fullstack Developer Student",
+              "period": "Aug 2023 - May 2024",
+              "description": "Contributed to the development of multiple fullstack applications for web and mobile platforms, delivering clean, maintainable code and ensuring responsive, user-friendly interfaces. Collaborated in team settings and handled end-to-end features from design to deployment."
+            }
+          ]
+        }
+      ]
+    },
+    "education": {
+      "formal": {
+        "title": "Formal Education",
+        "items": [
+          {
+            "institution": "Universitas Padjadjaran",
+            "degree": "Bachelor of Humanities",
+            "period": "2017 - 2022",
+            "gpa": "3.14"
+          }
+        ]
+      },
+      "nonFormal": {
+        "title": "Certifications & Training",
+        "items": [
+          {
+            "institution": "DigitalTalent Academy Kominfo",
+            "program": "Scalable Web Service with Golang",
+            "period": "March 2024"
+          },
+          {
+            "institution": "Coursera",
+            "program": "IBM Data Science Specialization",
+            "period": "January 2023"
+          },
+          {
+            "institution": "Coursera",
+            "program": "Google Data Analytics Specialization",
+            "period": "2023"
+          }
+        ]
+      }
+    }
   },
   "services": {
     "title": "My Services",
