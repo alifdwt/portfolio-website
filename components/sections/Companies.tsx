@@ -10,32 +10,32 @@ export default function Companies() {
   const companies = [
     {
       name: "PT. Digital Niaga Internasional",
-      logo: "/logo/dni-logo.png",
+      logo: "/images/logo/dni-logo.png",
       alt: "Digital Niaga Internasional Logo",
     },
     {
       name: "DumbWays Indonesia",
-      logo: "/logo/dumbways-logo.png",
+      logo: "/images/logo/dumbways-logo.png",
       alt: "DumbWays Indonesia Logo",
     },
     {
       name: "Binasentra Purna",
-      logo: "/logo/bsp-logo.webp",
+      logo: "/images/logo/bsp-logo.webp",
       alt: "Binasentra Purna Logo",
     },
     {
       name: "Eternesia",
-      logo: "/logo/eternesia-logo.png",
+      logo: "/images/logo/eternesia-logo.png",
       alt: "Eternesia Logo",
     },
     {
       name: "Pandu Cipta Solusi",
-      logo: "/logo/pcs-logo.jpg",
+      logo: "/images/logo/pcs-logo.jpg",
       alt: "Pandu Cipta Solusi Logo",
     },
     {
       name: "Universitas Siber Asia",
-      logo: "/logo/unsia-logo.png",
+      logo: "/images/logo/unsia-logo.png",
       alt: "Universitas Siber Asia Logo",
     },
   ];

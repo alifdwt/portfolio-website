@@ -16,7 +16,7 @@
     "scrollDown": "Gulir ke Bawah"
   },
   "companies": {
-    "title": "Partner Terpercaya untuk Institusi Pendidikan & Perusahaan Teknologi"
+    "title": "Partner Terpercaya untuk Institusi Pendidikan, Asuransi & Perusahaan Teknologi"
   },
   "about": {
     "badge": "TENTANG SAYA",
@@ -101,28 +101,47 @@
     }
   },
   "services": {
-    "title": "Layanan Saya",
-    "subtitle": "Apa Yang Saya Lakukan",
-    "frontend": {
-      "title": "Frontend Development",
-      "description": "Membangun interface responsive dan user-friendly dengan framework modern"
-    },
-    "backend": {
-      "title": "Backend Development",
-      "description": "Aplikasi server-side yang scalable dan API yang robust"
-    },
-    "mobile": {
-      "title": "Mobile Development",
-      "description": "Aplikasi mobile cross-platform dengan performa native"
-    },
-    "devops": {
-      "title": "DevOps",
-      "description": "Otomasi deployment dan manajemen infrastruktur"
-    },
-    "data": {
-      "title": "Analisis Data",
-      "description": "Insights data dan visualisasi yang indah"
-    }
+    "badge": "Layanan Saya",
+    "title": "Apa Yang Saya Lakukan Dengan Solusi Teknologi Modern",
+    "viewDetails": "Lihat Detail",
+    "collapse": "Tutup",
+    "services": [
+      {
+        "number": "01",
+        "title": "Pengembangan Frontend",
+        "tags": ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+        "description": "Membangun interface yang responsif dan user-friendly dengan framework modern dan teknologi terdepan.",
+        "details": "Saya spesialis dalam menciptakan aplikasi web yang dinamis dan interaktif menggunakan Next.js dan React. Keahlian saya meliputi server-side rendering (SSR), static site generation (SSG), dan membangun arsitektur berbasis komponen. Saya memastikan setiap interface mobile-first, accessible, dan dioptimalkan untuk performa. Dari dashboard kompleks hingga landing page yang elegan, saya menghasilkan implementasi pixel-perfect yang disukai pengguna."
+      },
+      {
+        "number": "02",
+        "title": "Pengembangan Backend",
+        "tags": ["Golang", "PostgreSQL", "REST APIs", "Microservices"],
+        "description": "Aplikasi server-side yang scalable dan API yang robust untuk mendukung aplikasi web dan mobile modern.",
+        "details": "Menggunakan Golang, saya membangun sistem backend performa tinggi yang dapat menangani ribuan pengguna bersamaan. Pengalaman saya meliputi desain RESTful APIs, implementasi sistem autentikasi seperti SSO, manajemen database dengan PostgreSQL, dan pembuatan arsitektur microservices. Saya fokus pada clean code, proper error handling, dan comprehensive testing untuk memastikan sistem yang reliable dan maintainable."
+      },
+      {
+        "number": "03",
+        "title": "Pengembangan Mobile",
+        "tags": ["React Native", "Cross-platform", "App Store"],
+        "description": "Aplikasi mobile cross-platform dengan performa native dan pengalaman pengguna yang seamless.",
+        "details": "Saya mengembangkan aplikasi mobile menggunakan React Native yang bekerja seamless di platform iOS dan Android. Pendekatan saya meliputi pembuatan custom components, integrasi dengan native APIs, implementasi offline functionality, dan memastikan animasi yang smooth. Dari konsep hingga deployment App Store, saya menangani seluruh siklus pengembangan mobile sambil mempertahankan code reusability dan native performance."
+      },
+      {
+        "number": "04",
+        "title": "DevOps & Deployment",
+        "tags": ["Docker", "GitHub Actions", "VPS", "CI/CD"],
+        "description": "Manajemen infrastruktur dan automated deployment pipelines untuk delivery software yang reliable.",
+        "details": "Saya setup dan mengelola workflow DevOps lengkap menggunakan Docker untuk containerization dan GitHub Actions untuk continuous integration dan deployment. Keahlian saya meliputi konfigurasi VPS, automated testing pipelines, database migrations, dan monitoring systems. Saya memastikan aplikasi Anda deploy dengan smooth, scale secara efisien, dan maintain high availability di production environments."
+      },
+      {
+        "number": "05",
+        "title": "Analisis Data",
+        "tags": ["Python", "R", "Visualization", "Insights"],
+        "description": "Data insights dan visualisasi yang indah untuk mendorong keputusan bisnis yang tepat.",
+        "details": "Menggunakan Python dan R, saya mengubah raw data menjadi actionable insights melalui analisis komprehensif dan visualisasi yang menakjubkan. Toolkit saya meliputi Pandas, NumPy untuk data processing, dan ggplot2, Plotly untuk membuat interactive dashboards. Saya spesialis dalam statistical analysis, trend identification, dan membuat reports yang mengkomunikasikan complex data stories secara accessible dan visually appealing."
+      }
+    ]
   },
   "portfolio": {
     "title": "Proyek Unggulan",

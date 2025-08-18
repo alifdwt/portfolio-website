@@ -16,7 +16,7 @@
     "scrollDown": "Scroll Down"
   },
   "companies": {
-    "title": "A Trusted Partner For Educational Institutions & Tech Companies"
+    "title": "A Trusted Partner For Educational Institutions, Insurance & Tech Companies"
   },
 
   "about": {
@@ -102,28 +102,48 @@
     }
   },
   "services": {
-    "title": "My Services",
-    "subtitle": "What I Do",
-    "frontend": {
-      "title": "Frontend Development",
-      "description": "Building responsive, user-friendly interfaces with modern frameworks"
-    },
-    "backend": {
-      "title": "Backend Development",
-      "description": "Scalable server-side applications and robust APIs"
-    },
-    "mobile": {
-      "title": "Mobile Development",
-      "description": "Cross-platform mobile applications with native performance"
-    },
-    "devops": {
-      "title": "DevOps",
-      "description": "Deployment automation and infrastructure management"
-    },
-    "data": {
-      "title": "Data Analysis",
-      "description": "Data insights and beautiful visualizations"
-    }
+    "badge": "My Services",
+    "title": "What I Do With Modern Technology Solutions",
+    "viewDetails": "View Details",
+    "collapse": "Collapse",
+    "services": [
+      {
+        "number": "01",
+        "title": "Frontend Development",
+        "image": "/images/profile/profile-podcast.jpg",
+        "tags": ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+        "description": "Building responsive, user-friendly interfaces with modern frameworks and cutting-edge technologies.",
+        "details": "I specialize in creating dynamic, interactive web applications using Next.js and React. My expertise includes server-side rendering (SSR), static site generation (SSG), and building component-based architectures. I ensure every interface is mobile-first, accessible, and optimized for performance. From complex dashboards to sleek landing pages, I deliver pixel-perfect implementations that users love to interact with."
+      },
+      {
+        "number": "02",
+        "title": "Backend Development",
+        "tags": ["Golang", "PostgreSQL", "REST APIs", "Microservices"],
+        "description": "Scalable server-side applications and robust APIs that power modern web and mobile applications.",
+        "details": "Using Golang, I build high-performance backend systems that can handle thousands of concurrent users. My experience includes designing RESTful APIs, implementing authentication systems like SSO, managing databases with PostgreSQL, and creating microservices architectures. I focus on clean code, proper error handling, and comprehensive testing to ensure reliable, maintainable systems."
+      },
+      {
+        "number": "03",
+        "title": "Mobile Development",
+        "tags": ["React Native", "Cross-platform", "App Store"],
+        "description": "Cross-platform mobile applications with native performance and seamless user experience.",
+        "details": "I develop mobile applications using React Native that work seamlessly on both iOS and Android platforms. My approach includes creating custom components, integrating with native APIs, implementing offline functionality, and ensuring smooth animations. From concept to App Store deployment, I handle the entire mobile development lifecycle while maintaining code reusability and native performance."
+      },
+      {
+        "number": "04",
+        "title": "DevOps & Deployment",
+        "tags": ["Docker", "GitHub Actions", "VPS", "CI/CD"],
+        "description": "Infrastructure management and automated deployment pipelines for reliable software delivery.",
+        "details": "I set up and manage complete DevOps workflows using Docker for containerization and GitHub Actions for continuous integration and deployment. My expertise includes VPS configuration, automated testing pipelines, database migrations, and monitoring systems. I ensure your applications deploy smoothly, scale efficiently, and maintain high availability in production environments."
+      },
+      {
+        "number": "05",
+        "title": "Data Analysis",
+        "tags": ["Python", "R", "Visualization", "Insights"],
+        "description": "Data insights and beautiful visualizations that drive informed business decisions.",
+        "details": "Using Python and R, I transform raw data into actionable insights through comprehensive analysis and stunning visualizations. My toolkit includes Pandas, NumPy for data processing, and ggplot2, Plotly for creating interactive dashboards. I specialize in statistical analysis, trend identification, and creating reports that communicate complex data stories in an accessible, visually appealing way."
+      }
+    ]
   },
   "portfolio": {
     "title": "Featured Projects",
