@@ -267,6 +267,62 @@
       }
     ]
   },
+  "testimonials": {
+    "badge": "Clients Testimonial",
+    "title": "What My Clients Say...",
+    "testimonials": [
+      {
+        "id": "testimonial-1",
+        "content": "Working with Alif has been an exceptional experience. His expertise in Next.js and modern web development helped us build a robust, scalable platform that exceeded our expectations. The attention to detail and commitment to delivering high-quality code made all the difference in our project's success.",
+        "author": {
+          "name": "Sarah Johnson",
+          "position": "Product Manager",
+          "company": "TechFlow Solutions",
+          "avatar": "/images/testimonials/sarah-johnson.jpg"
+        }
+      },
+      {
+        "id": "testimonial-2",
+        "content": "Alif's full-stack development skills are truly impressive. He seamlessly handled both frontend and backend development for our e-commerce platform, delivering a solution that not only looks great but performs exceptionally well. His problem-solving abilities and technical expertise made him an invaluable team member.",
+        "author": {
+          "name": "Michael Chen",
+          "position": "CTO",
+          "company": "Digital Innovations Inc",
+          "avatar": "/images/testimonials/michael-chen.jpg"
+        }
+      },
+      {
+        "id": "testimonial-3",
+        "content": "The data visualization dashboard that Alif created for our analytics needs has transformed how we understand our business metrics. His expertise in Python, R, and modern visualization techniques helped us uncover insights that were previously hidden in our data. Highly recommend his analytical skills.",
+        "author": {
+          "name": "Dr. Amanda Rodriguez",
+          "position": "Data Science Director",
+          "company": "Analytics Pro",
+          "avatar": "/images/testimonials/amanda-rodriguez.jpg"
+        }
+      },
+      {
+        "id": "testimonial-4",
+        "content": "Alif's mobile development expertise using React Native helped us launch our cross-platform app ahead of schedule. His understanding of both iOS and Android ecosystems, combined with his ability to write clean, maintainable code, made the development process smooth and efficient.",
+        "author": {
+          "name": "James Wilson",
+          "position": "Mobile Product Lead",
+          "company": "AppVenture Studios",
+          "avatar": "/images/testimonials/james-wilson.jpg"
+        }
+      },
+      {
+        "id": "testimonial-5",
+        "content": "The DevOps implementation and CI/CD pipelines that Alif set up have significantly improved our deployment process. His knowledge of Docker, GitHub Actions, and cloud infrastructure helped us achieve faster, more reliable deployments. Our development team's productivity has increased dramatically.",
+        "author": {
+          "name": "Lisa Thompson",
+          "position": "Engineering Manager",
+          "company": "CloudScale Systems",
+          "avatar": "/images/testimonials/lisa-thompson.jpg"
+        }
+      }
+    ]
+  },
   "contact": {
     "title": "Let's See If We're A Good Fit With A 15 Min Call",
     "cta": "♦ Book A Call ♦",
