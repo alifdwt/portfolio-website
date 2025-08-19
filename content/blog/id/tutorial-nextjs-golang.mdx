@@ -32,3 +32,133 @@ mkdir fullstack-nextjs-golang
 cd fullstack-nextjs-golang
 mkdir frontend backend
 ```
+
+## Frontend: Next.js 15 Setup
+
+Pertama, kita setup Next.js frontend:
+
+```bash
+cd frontend
+npx create-next-app@latest . --typescript --tailwind --app
+```
+
+### Install Dependencies
+
+```bash
+npm install @tanstack/react-query axios
+npm install -D @types/node
+```
+
+## Backend: Golang Fiber Setup
+
+Sekarang kita setup Golang backend dengan Fiber:
+
+```bash
+cd ../backend
+go mod init backend
+go get github.com/gofiber/fiber/v2
+go get github.com/gofiber/fiber/v2/middleware/cors
+```
+
+## Database Integration
+
+Untuk database, kita akan menggunakan PostgreSQL dengan GORM:
+
+```bash
+go get gorm.io/gorm
+go get gorm.io/driver/postgres
+```
+
+### Database Model Example
+
+```go
+type User struct {
+    ID        uint      `json:"id" gorm:"primaryKey"`
+    Email     string    `json:"email" gorm:"unique;not null"`
+    Name      string    `json:"name" gorm:"not null"`
+    Password  string    `json:"-" gorm:"not null"`
+    CreatedAt time.Time `json:"created_at"`
+    UpdatedAt time.Time `json:"updated_at"`
+}
+```
+
+## Authentication Implementation
+
+Kita akan implement JWT authentication untuk secure API access menggunakan:
+
+```bash
+go get github.com/golang-jwt/jwt/v5
+go get golang.org/x/crypto/bcrypt
+```
+
+## API Endpoints
+
+Berikut adalah contoh struktur API yang akan kita buat:
+
+- `POST /api/auth/register` - User registration
+- `POST /api/auth/login` - User login
+- `GET /api/users/profile` - Get user profile (protected)
+- `PUT /api/users/profile` - Update user profile (protected)
+
+## Frontend Integration
+
+Di Next.js, kita akan membuat:
+
+1. **Auth Context** untuk manage authentication state
+2. **API Layer** menggunakan axios
+3. **Protected Routes** dengan middleware
+4. **Form Components** untuk login/register
+
+## Deployment Strategy
+
+Aplikasi ini akan di-deploy menggunakan:
+
+- **Frontend**: Vercel (otomatis dari GitHub)
+- **Backend**: VPS dengan Docker dan Docker Compose
+- **Database**: PostgreSQL di cloud (Railway/Supabase)
+
+### Docker Configuration
+
+```dockerfile
+# Backend Dockerfile
+FROM golang:1.21-alpine AS builder
+WORKDIR /app
+COPY go.mod go.sum ./
+RUN go mod download
+COPY . .
+RUN go build -o main .
+
+FROM alpine:latest
+RUN apk --no-cache add ca-certificates
+WORKDIR /root/
+COPY --from=builder /app/main .
+EXPOSE 8080
+CMD ["./main"]
+```
+
+## Best Practices
+
+1. **Security**: Selalu validate input, use HTTPS, implement rate limiting
+2. **Error Handling**: Consistent error responses dan proper logging
+3. **Code Structure**: Clean architecture dengan separation of concerns
+4. **Testing**: Unit tests untuk business logic, integration tests untuk APIs
+
+## Kesimpulan
+
+Dengan mengikuti tutorial ini, Anda akan memiliki foundation yang solid untuk membangun aplikasi full-stack modern yang scalable dan maintainable.
+
+Stack Next.js + Golang sangat powerful karena:
+
+- **Performance**: Golang backend yang cepat
+- **Developer Experience**: Next.js dengan TypeScript
+- **Scalability**: Both technologies scale well
+- **Community**: Strong ecosystem dan documentation
+
+Happy coding! 🚀
+
+## Resources
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Fiber Documentation](https://docs.gofiber.io/)
+- [GORM Documentation](https://gorm.io/docs/)
+- [PostgreSQL Documentation](https://www.postgresql.org/docs/)

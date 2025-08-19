@@ -1,0 +1,471 @@
+---
+title: "Building Full-Stack Apps with Next.js 15 and Golang"
+slug: "nextjs-golang-tutorial"
+excerpt: "Learn how to build modern full-stack applications using Next.js 15 App Router for frontend and Golang with Fiber for backend. Complete with authentication and production deployment."
+date: "2025-01-15"
+category: "tutorial"
+tags: ["nextjs", "golang", "fullstack", "tutorial"]
+featured: true
+author: "Alif Dewantara"
+coverImage: "/images/blog/nextjs-golang-cover.png"
+---
+
+# Building Full-Stack Apps with Next.js 15 and Golang
+
+In this comprehensive tutorial, we'll learn how to build modern full-stack applications using two powerful technologies: **Next.js 15** for the frontend and **Golang with Fiber** for the backend.
+
+## Prerequisites
+
+Before starting, make sure you're familiar with:
+
+- Basic JavaScript/TypeScript
+- React fundamentals
+- Basic understanding of REST APIs
+- Golang basics (optional but recommended)
+
+## Why This Stack?
+
+The Next.js + Golang combination offers:
+
+- **Performance**: Golang's speed for backend operations
+- **Developer Experience**: Next.js's excellent DX with TypeScript
+- **Scalability**: Both technologies handle growth well
+- **Type Safety**: End-to-end type safety
+
+## Project Structure Setup
+
+Let's start by creating a clean and scalable project structure:
+
+```bash
+mkdir fullstack-nextjs-golang
+cd fullstack-nextjs-golang
+mkdir frontend backend
+```
+
+Your final structure will look like:
+
+```
+fullstack-nextjs-golang/
+├── frontend/          # Next.js application
+├── backend/           # Golang API server
+├── docker-compose.yml # Local development setup
+└── README.md
+```
+
+## Frontend: Next.js 15 Setup
+
+First, let's set up the Next.js frontend with all the modern features:
+
+```bash
+cd frontend
+npx create-next-app@latest . --typescript --tailwind --app
+```
+
+### Essential Dependencies
+
+Install additional packages for a robust frontend:
+
+```bash
+npm install @tanstack/react-query axios zod react-hook-form @hookform/resolvers
+npm install -D @types/node
+```
+
+### Project Configuration
+
+Update your `next.config.js`:
+
+```javascript
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  env: {
+    API_URL: process.env.API_URL || "http://localhost:8080",
+  },
+};
+
+module.exports = nextConfig;
+```
+
+## Backend: Golang Fiber Setup
+
+Now let's set up the Golang backend with Fiber framework:
+
+```bash
+cd ../backend
+go mod init backend
+go get github.com/gofiber/fiber/v2
+go get github.com/gofiber/fiber/v2/middleware/cors
+go get github.com/gofiber/fiber/v2/middleware/logger
+```
+
+### Database Integration
+
+For the database, we'll use PostgreSQL with GORM:
+
+```bash
+go get gorm.io/gorm
+go get gorm.io/driver/postgres
+go get github.com/joho/godotenv
+```
+
+### Basic Server Setup
+
+Create `main.go`:
+
+```go
+package main
+
+import (
+    "log"
+    "github.com/gofiber/fiber/v2"
+    "github.com/gofiber/fiber/v2/middleware/cors"
+    "github.com/gofiber/fiber/v2/middleware/logger"
+)
+
+func main() {
+    app := fiber.New()
+
+    // Middleware
+    app.Use(logger.New())
+    app.Use(cors.New(cors.Config{
+        AllowOrigins: "http://localhost:3000",
+        AllowHeaders: "Origin, Content-Type, Accept, Authorization",
+    }))
+
+    // Routes
+    api := app.Group("/api")
+    api.Get("/health", func(c *fiber.Ctx) error {
+        return c.JSON(fiber.Map{
+            "status": "ok",
+            "message": "Server is running",
+        })
+    })
+
+    log.Fatal(app.Listen(":8080"))
+}
+```
+
+## Database Models
+
+Define your data structures:
+
+```go
+package models
+
+import (
+    "time"
+    "gorm.io/gorm"
+)
+
+type User struct {
+    ID        uint           `json:"id" gorm:"primaryKey"`
+    Email     string         `json:"email" gorm:"unique;not null"`
+    Name      string         `json:"name" gorm:"not null"`
+    Password  string         `json:"-" gorm:"not null"`
+    CreatedAt time.Time      `json:"created_at"`
+    UpdatedAt time.Time      `json:"updated_at"`
+    DeletedAt gorm.DeletedAt `json:"-" gorm:"index"`
+}
+
+type Post struct {
+    ID        uint           `json:"id" gorm:"primaryKey"`
+    Title     string         `json:"title" gorm:"not null"`
+    Content   string         `json:"content" gorm:"type:text"`
+    UserID    uint           `json:"user_id"`
+    User      User           `json:"user" gorm:"foreignKey:UserID"`
+    CreatedAt time.Time      `json:"created_at"`
+    UpdatedAt time.Time      `json:"updated_at"`
+    DeletedAt gorm.DeletedAt `json:"-" gorm:"index"`
+}
+```
+
+## Authentication Implementation
+
+Implement JWT authentication:
+
+```bash
+go get github.com/golang-jwt/jwt/v5
+go get golang.org/x/crypto/bcrypt
+```
+
+### JWT Middleware
+
+```go
+package middleware
+
+import (
+    "strings"
+    "github.com/gofiber/fiber/v2"
+    "github.com/golang-jwt/jwt/v5"
+)
+
+func AuthRequired() fiber.Handler {
+    return func(c *fiber.Ctx) error {
+        authHeader := c.Get("Authorization")
+        if authHeader == "" {
+            return c.Status(401).JSON(fiber.Map{
+                "error": "Authorization header required",
+            })
+        }
+
+        tokenString := strings.Replace(authHeader, "Bearer ", "", 1)
+        token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
+            return []byte("your-secret-key"), nil
+        })
+
+        if err != nil || !token.Valid {
+            return c.Status(401).JSON(fiber.Map{
+                "error": "Invalid token",
+            })
+        }
+
+        claims := token.Claims.(jwt.MapClaims)
+        c.Locals("user_id", claims["user_id"])
+
+        return c.Next()
+    }
+}
+```
+
+## API Endpoints
+
+Create a comprehensive API structure:
+
+- `POST /api/auth/register` - User registration
+- `POST /api/auth/login` - User login
+- `GET /api/auth/me` - Get current user (protected)
+- `GET /api/posts` - Get all posts
+- `POST /api/posts` - Create post (protected)
+- `PUT /api/posts/:id` - Update post (protected)
+- `DELETE /api/posts/:id` - Delete post (protected)
+
+## Frontend Integration
+
+### API Client Setup
+
+Create an axios instance:
+
+```typescript
+// lib/api.ts
+import axios from "axios";
+
+const api = axios.create({
+  baseURL: process.env.API_URL || "http://localhost:8080/api",
+});
+
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+export default api;
+```
+
+### Auth Context
+
+```typescript
+// contexts/AuthContext.tsx
+"use client";
+
+import { createContext, useContext, useEffect, useState } from "react";
+import api from "@/lib/api";
+
+interface User {
+  id: number;
+  email: string;
+  name: string;
+}
+
+interface AuthContextType {
+  user: User | null;
+  login: (email: string, password: string) => Promise<void>;
+  logout: () => void;
+  loading: boolean;
+}
+
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
+
+export function AuthProvider({ children }: { children: React.ReactNode }) {
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      api
+        .get("/auth/me")
+        .then((response) => setUser(response.data))
+        .catch(() => localStorage.removeItem("token"))
+        .finally(() => setLoading(false));
+    } else {
+      setLoading(false);
+    }
+  }, []);
+
+  const login = async (email: string, password: string) => {
+    const response = await api.post("/auth/login", { email, password });
+    const { token, user } = response.data;
+    localStorage.setItem("token", token);
+    setUser(user);
+  };
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    setUser(null);
+  };
+
+  return (
+    <AuthContext.Provider value={{ user, login, logout, loading }}>
+      {children}
+    </AuthContext.Provider>
+  );
+}
+
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("useAuth must be used within AuthProvider");
+  }
+  return context;
+};
+```
+
+## Development Workflow
+
+### Docker Setup
+
+Create `docker-compose.yml` for local development:
+
+```yaml
+version: "3.8"
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: fullstack_app
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    environment:
+      DATABASE_URL: postgres://postgres:password@postgres:5432/fullstack_app?sslmode=disable
+    depends_on:
+      - postgres
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      API_URL: http://backend:8080
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
+```
+
+## Testing Strategy
+
+### Backend Testing
+
+```go
+// tests/user_test.go
+package tests
+
+import (
+    "testing"
+    "github.com/stretchr/testify/assert"
+)
+
+func TestCreateUser(t *testing.T) {
+    // Test user creation logic
+    assert.True(t, true)
+}
+```
+
+### Frontend Testing
+
+```typescript
+// __tests__/auth.test.tsx
+import { render, screen } from "@testing-library/react";
+import LoginForm from "@/components/LoginForm";
+
+test("renders login form", () => {
+  render(<LoginForm />);
+  expect(screen.getByText("Login")).toBeInTheDocument();
+});
+```
+
+## Deployment Strategy
+
+### Production Deployment
+
+1. **Frontend**: Deploy to Vercel with environment variables
+2. **Backend**: Deploy to VPS using Docker
+3. **Database**: Use managed PostgreSQL (Railway, Supabase, or AWS RDS)
+
+### Environment Variables
+
+Frontend (`.env.local`):
+
+```
+API_URL=https://your-api-domain.com
+```
+
+Backend (`.env`):
+
+```
+DATABASE_URL=postgres://user:password@host:port/dbname
+JWT_SECRET=your-super-secret-jwt-key
+```
+
+## Performance Optimization
+
+1. **Database**: Use indexes, connection pooling
+2. **API**: Implement caching with Redis
+3. **Frontend**: Use Next.js built-in optimizations
+4. **Monitoring**: Add logging and metrics
+
+## Security Best Practices
+
+1. **Input Validation**: Validate all inputs on both frontend and backend
+2. **HTTPS**: Always use HTTPS in production
+3. **Rate Limiting**: Implement rate limiting for APIs
+4. **CORS**: Configure CORS properly
+5. **Secrets**: Never commit secrets to version control
+
+## Conclusion
+
+This Next.js + Golang stack provides an excellent foundation for building modern, scalable web applications. The combination offers:
+
+- **Excellent Performance**: Golang's speed with Next.js's optimization
+- **Great Developer Experience**: TypeScript, hot reload, excellent tooling
+- **Production Ready**: Battle-tested technologies with strong ecosystems
+- **Scalable**: Both technologies handle growth exceptionally well
+
+## Next Steps
+
+1. Add real-time features with WebSockets
+2. Implement caching strategies
+3. Add comprehensive testing
+4. Set up CI/CD pipelines
+5. Monitor application performance
+
+Happy coding! 🚀
+
+## Additional Resources
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Fiber Documentation](https://docs.gofiber.io/)
+- [GORM Documentation](https://gorm.io/docs/)
+- [PostgreSQL Best Practices](https://wiki.postgresql.org/wiki/Don%27t_Do_This)

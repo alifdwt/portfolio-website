@@ -329,6 +329,49 @@
     "email": "Send Email",
     "downloadCV": "Download CV"
   },
+
+  "blog": {
+    "title": "Discover our latest news",
+    "subtitle": "Discover the achievements that set us apart. From groundbreaking projects to industry accolades, we take pride in our accomplishments.",
+    "searchPlaceholder": "Search articles...",
+    "search": "Find Now",
+    "recentPosts": "Recent Articles",
+    "sidebar": {
+      "featured": "Featured",
+      "latest": "Latest"
+    },
+    "categories": {
+      "tutorial": "Tutorial",
+      "career": "Career",
+      "projects": "Project Stories",
+      "review": "Tech Review",
+      "thoughts": "Thoughts"
+    },
+    "meta": {
+      "readingTime": "min read",
+      "publishedOn": "Published on",
+      "by": "By",
+      "in": "in",
+      "tags": "Tags"
+    },
+    "actions": {
+      "readMore": "Read More",
+      "backToBlog": "Back to Blog",
+      "share": "Share",
+      "loadMore": "Load More Articles"
+    },
+    "newsletter": {
+      "title": "Stay Updated",
+      "subtitle": "Get the latest articles and tutorials delivered to your inbox.",
+      "placeholder": "Your email...",
+      "subscribe": "Subscribe"
+    },
+    "relatedPosts": "Related Articles",
+    "noResults": {
+      "title": "No articles found",
+      "subtitle": "Try adjusting your search or filter criteria."
+    }
+  },
   "footer": {
     "links": {
       "home": "Home",
