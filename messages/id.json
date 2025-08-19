@@ -275,50 +275,50 @@
         "id": "testimonial-1",
         "content": "Bekerja dengan Alif adalah pengalaman yang luar biasa. Keahliannya dalam Next.js dan pengembangan web modern membantu kami membangun platform yang robust dan scalable yang melebihi ekspektasi kami. Perhatian terhadap detail dan komitmen untuk menghasilkan kode berkualitas tinggi membuat perbedaan besar dalam kesuksesan proyek kami.",
         "author": {
-          "name": "Sarah Johnson",
-          "position": "Product Manager",
-          "company": "TechFlow Solutions",
-          "avatar": "/images/testimonials/sarah-johnson.jpg"
+          "name": "Adib Hauzan",
+          "position": "Software Engineer",
+          "company": "Binasentra Purna",
+          "avatar": "/images/testimonials/adib-hauzan.jpeg"
         }
       },
       {
         "id": "testimonial-2",
         "content": "Kemampuan full-stack development Alif benar-benar mengesankan. Dia dengan mulus menangani pengembangan frontend dan backend untuk platform e-commerce kami, menghasilkan solusi yang tidak hanya terlihat bagus tetapi juga berkinerja sangat baik. Kemampuan problem-solving dan keahlian teknisnya membuatnya menjadi anggota tim yang sangat berharga.",
         "author": {
-          "name": "Michael Chen",
-          "position": "CTO",
-          "company": "Digital Innovations Inc",
-          "avatar": "/images/testimonials/michael-chen.jpg"
+          "name": "Denny Dolok Partala",
+          "position": "Backend Developer",
+          "company": "PT Sabio Ekuator Teknologi",
+          "avatar": "/images/testimonials/denny-partala.jpeg"
         }
       },
       {
         "id": "testimonial-3",
         "content": "Dashboard visualisasi data yang Alif buat untuk kebutuhan analitik kami telah mengubah cara kami memahami metrik bisnis. Keahliannya dalam Python, R, dan teknik visualisasi modern membantu kami mengungkap insights yang sebelumnya tersembunyi dalam data kami. Sangat merekomendasikan kemampuan analitiknya.",
         "author": {
-          "name": "Dr. Amanda Rodriguez",
-          "position": "Data Science Director",
-          "company": "Analytics Pro",
-          "avatar": "/images/testimonials/amanda-rodriguez.jpg"
+          "name": "Noval Fauzan",
+          "position": "Manufacturing Execution System (MES) Analyst",
+          "company": "PT Posco DX Indonesia",
+          "avatar": "/images/testimonials/noval-fauzan.jpeg"
         }
       },
       {
         "id": "testimonial-4",
         "content": "Keahlian mobile development Alif menggunakan React Native membantu kami meluncurkan aplikasi cross-platform lebih cepat dari jadwal. Pemahamannya terhadap ekosistem iOS dan Android, dikombinasikan dengan kemampuannya menulis kode yang bersih dan maintainable, membuat proses pengembangan menjadi lancar dan efisien.",
         "author": {
-          "name": "James Wilson",
-          "position": "Mobile Product Lead",
-          "company": "AppVenture Studios",
-          "avatar": "/images/testimonials/james-wilson.jpg"
+          "name": "Ichwanul Rahman",
+          "position": "Frontend Developer",
+          "company": "PT Digital Niaga Internasional",
+          "avatar": "/images/testimonials/ichwanul-rahman.jpeg"
         }
       },
       {
         "id": "testimonial-5",
         "content": "Implementasi DevOps dan CI/CD pipelines yang Alif setup telah secara signifikan meningkatkan proses deployment kami. Pengetahuannya tentang Docker, GitHub Actions, dan cloud infrastructure membantu kami mencapai deployment yang lebih cepat dan reliable. Produktivitas tim development kami meningkat drastis.",
         "author": {
-          "name": "Lisa Thompson",
-          "position": "Engineering Manager",
-          "company": "CloudScale Systems",
-          "avatar": "/images/testimonials/lisa-thompson.jpg"
+          "name": "Alwi Wahyu Waludin",
+          "position": "Frontend Developer",
+          "company": "PT Pandu Cipta Solusi",
+          "avatar": "/images/testimonials/alwi-wahyu.jpeg"
         }
       }
     ]
