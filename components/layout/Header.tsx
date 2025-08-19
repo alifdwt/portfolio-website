@@ -16,11 +16,12 @@ export default function Header() {
   const t = useTranslations("navigation");
 
   const navItems = [
-    { label: t("home"), href: "#home" },
-    { label: t("about"), href: "#about" },
-    { label: t("services"), href: "#services" },
-    { label: t("portfolio"), href: "#portfolio" },
-    { label: t("contact"), href: "#contact" },
+    { label: t("home"), href: "/" },
+    { label: t("about"), href: "/about" },
+    { label: t("services"), href: "/services" },
+    { label: t("portfolio"), href: "/portfolio" },
+    { label: t("contact"), href: "/contact" },
+    { label: "Blog", href: "/blog" },
   ];
 
   const socialLinks = [

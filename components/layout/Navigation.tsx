@@ -1,115 +1,65 @@
 "use client";
 
-import { useState, useEffect } from "react";
-
+import { usePathname, Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
-interface NavItem {
+interface NavigationItem {
   label: string;
   href: string;
 }
 
 interface NavigationProps {
-  items: NavItem[];
-  mobile?: boolean;
+  items: NavigationItem[];
   dark?: boolean;
+  mobile?: boolean;
   onItemClick?: () => void;
 }
 
 export default function Navigation({
   items,
-  mobile = false,
   dark = false,
+  mobile = false,
   onItemClick,
 }: NavigationProps) {
-  const [activeSection, setActiveSection] = useState("");
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      {
-        rootMargin: "-50% 0px -50% 0px",
-      }
-    );
-
-    // Observe all sections
-    items.forEach((item) => {
-      const id = item.href.replace("#", "");
-      const element = document.getElementById(id);
-      if (element) {
-        observer.observe(element);
-      }
-    });
-
-    return () => observer.disconnect();
-  }, [items]);
-
-  const handleClick = (href: string) => {
-    const id = href.replace("#", "");
-    const element = document.getElementById(id);
-
-    if (element) {
-      const offsetTop = element.offsetTop - 80; // Account for fixed header
-      window.scrollTo({
-        top: offsetTop,
-        behavior: "smooth",
-      });
-    }
-
-    onItemClick?.();
-  };
-
-  if (mobile) {
-    return (
-      <nav className="flex flex-col space-y-4">
-        {items.map((item) => {
-          // const isActive = activeSection === item.href.replace("#", "");
-          return (
-            <button
-              key={item.href}
-              onClick={() => handleClick(item.href)}
-              className={cn(
-                "text-left text-lg transition-colors",
-                dark
-                  ? "text-foreground hover:text-foreground"
-                  : "text-muted-foreground hover:text-foreground"
-              )}
-            >
-              {item.label}
-            </button>
-          );
-        })}
-      </nav>
-    );
-  }
+  const pathname = usePathname();
 
   return (
-    <nav className="flex items-center space-x-8">
+    <nav className={cn("flex", mobile ? "flex-col space-y-4" : "space-x-8")}>
       {items.map((item) => {
-        const isActive = activeSection === item.href.replace("#", "");
+        // More robust active state detection
+        const isActive =
+          pathname === item.href ||
+          (item.href !== "/" && pathname.startsWith(item.href));
+
         return (
-          <button
+          <Link
             key={item.href}
-            onClick={() => handleClick(item.href)}
+            href={item.href}
+            onClick={onItemClick}
             className={cn(
-              "text-sm transition-colors relative",
+              "relative transition-colors duration-200",
+              mobile ? "block py-2" : "inline-block",
               dark
-                ? "text-foreground hover:text-foreground"
-                : "text-muted-foreground hover:text-foreground",
-              isActive ? "font-extrabold" : "font-medium"
+                ? "text-gray-300 hover:text-white"
+                : "text-gray-600 hover:text-gray-900",
+              isActive &&
+                (dark
+                  ? "text-white font-semibold"
+                  : "text-gray-900 font-semibold"),
+              "group"
             )}
           >
             {item.label}
-            {isActive && (
-              <span className="absolute -bottom-1 left-0 h-0.5 w-full rounded-full bg-primary" />
-            )}
-          </button>
+
+            {/* Active indicator */}
+            <span
+              className={cn(
+                "absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-200",
+                mobile ? "hidden" : "block",
+                isActive ? "w-full" : "w-0 group-hover:w-full"
+              )}
+            />
+          </Link>
         );
       })}
     </nav>
