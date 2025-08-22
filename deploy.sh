@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Deploy script for portfolio website using GHCR
+# Deploy script for portfolio website using GHCR and pnpm
 # Usage: ./deploy.sh [main|dev|local] [github_token]
 
 set -e
@@ -11,7 +11,7 @@ PROJECT_DIR=~/projects/portfolio-website
 REGISTRY="ghcr.io"
 IMAGE_NAME="alifdwt/portfolio-website"
 
-echo "🚀 Starting deployment for $ENVIRONMENT environment using GHCR..."
+echo "🚀 Starting deployment for $ENVIRONMENT environment using GHCR and pnpm..."
 
 # Check if we need GitHub token for authentication
 if [ "$ENVIRONMENT" != "local" ] && [ -z "$GITHUB_TOKEN" ]; then
@@ -25,7 +25,15 @@ fi
 cd $PROJECT_DIR
 
 if [ "$ENVIRONMENT" = "local" ]; then
-    echo "🔨 Building and starting local development environment..."
+    echo "🔨 Building and starting local development environment with pnpm..."
+    
+    # Ensure pnpm is available
+    if ! command -v pnpm &> /dev/null; then
+        echo "📦 Installing pnpm..."
+        curl -fsSL https://get.pnpm.io/install.sh | sh -
+        source ~/.bashrc
+    fi
+    
     docker compose --profile local up -d --build portfolio-local
     echo "✅ Local development environment started!"
     echo "🌐 Access at: http://103.127.136.110:3002"
@@ -67,7 +75,7 @@ docker image prune -f
 echo "📊 Container status:"
 docker compose ps
 
-echo "🎉 Deployment completed!"
+echo "🎉 Deployment completed with pnpm!"
 
 # Show image information
 if [ "$ENVIRONMENT" != "local" ]; then
