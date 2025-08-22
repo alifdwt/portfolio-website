@@ -5,5 +5,5 @@ export default function BlogLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="py-16">{children}</div>;
+  return <div className="pt-16">{children}</div>;
 }

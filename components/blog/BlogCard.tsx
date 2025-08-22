@@ -56,8 +56,8 @@ export default function BlogCard({
   return (
     <Link href={`/${locale}/blog/${post.slug}`}>
       <article
-        className={`group overflow-hidden rounded-xl bg-white shadow-sm transition-all duration-300 hover:shadow-lg ${
-          featured ? "border-2 border-blue-200" : ""
+        className={`group overflow-hidden rounded-xl border bg-white shadow-sm transition-all duration-300 hover:shadow-lg ${
+          featured ? "border-2 border-primary/60" : ""
         }`}
       >
         {/* Image/Cover Area */}
