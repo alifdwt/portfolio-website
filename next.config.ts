@@ -18,16 +18,6 @@ const nextConfig: NextConfig = {
     ],
   },
 
-  async rewrites() {
-    return [
-      {
-        source: "/id/:path*",
-        destination: "/:path*",
-        locale: false,
-      },
-    ];
-  },
-
   // Security headers
   async headers() {
     return [
