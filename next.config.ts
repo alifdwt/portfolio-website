@@ -7,6 +7,7 @@ import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 
 const nextConfig: NextConfig = {
+  output: "standalone",
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   images: {
     remotePatterns: [
@@ -15,6 +16,39 @@ const nextConfig: NextConfig = {
         hostname: "res.cloudinary.com",
       },
     ],
+  },
+
+  async rewrites() {
+    return [
+      {
+        source: "/id/:path*",
+        destination: "/:path*",
+        locale: false,
+      },
+    ];
+  },
+
+  // Security headers
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          {
+            key: "X-Frame-Options",
+            value: "DENY",
+          },
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+          {
+            key: "Referrer-Policy",
+            value: "origin-when-cross-origin",
+          },
+        ],
+      },
+    ];
   },
 };
 
