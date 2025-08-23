@@ -7,7 +7,13 @@ import { useState } from "react";
 
 import LanguageSwitcher from "@/components/common/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 import Navigation from "./Navigation";
 
@@ -16,11 +22,12 @@ export default function Header() {
   const t = useTranslations("navigation");
 
   const navItems = [
-    { label: t("home"), href: "#home" },
-    { label: t("about"), href: "#about" },
-    { label: t("services"), href: "#services" },
-    { label: t("portfolio"), href: "#portfolio" },
-    { label: t("contact"), href: "#contact" },
+    { label: t("home"), href: "/" },
+    { label: t("about"), href: "/about" },
+    { label: t("services"), href: "/services" },
+    { label: t("portfolio"), href: "/portfolio" },
+    { label: t("contact"), href: "/contact" },
+    { label: "Blog", href: "/blog" },
   ];
 
   const socialLinks = [
@@ -92,20 +99,25 @@ export default function Header() {
                 side="right"
                 className="bg-header-hero w-[300px] border-white/10"
               >
+                <SheetHeader>
+                  <SheetTitle>Menu</SheetTitle>
+                </SheetHeader>
                 <div className="mt-8 flex flex-col space-y-6">
-                  <Navigation
-                    items={navItems}
-                    mobile
-                    dark
-                    onItemClick={() => setIsOpen(false)}
-                  />
+                  <div className="px-4">
+                    <Navigation
+                      items={navItems}
+                      mobile
+                      dark
+                      onItemClick={() => setIsOpen(false)}
+                    />
+                  </div>
 
                   {/* Mobile Social Links */}
                   <div className="border-t border-white/10 pt-6">
-                    <p className="mb-4 text-sm text-gray-400">
+                    <p className="mb-4 px-4 text-sm text-gray-400">
                       Connect with me
                     </p>
-                    <div className="grid grid-cols-4 gap-3">
+                    <div className="grid grid-cols-4 gap-3 px-4">
                       {socialLinks.map((social) => {
                         const Icon = social.icon;
                         return (

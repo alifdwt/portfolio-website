@@ -329,6 +329,48 @@
     "email": "Kirim Email",
     "downloadCV": "Unduh CV"
   },
+  "blog": {
+    "title": "Temukan berita terbaru kami",
+    "subtitle": "Temukan pencapaian yang membedakan kami. Dari proyek terobosan hingga pengakuan industri, kami bangga dengan prestasi kami.",
+    "searchPlaceholder": "Cari artikel...",
+    "search": "Cari Sekarang",
+    "recentPosts": "Artikel Terbaru",
+    "sidebar": {
+      "featured": "Unggulan",
+      "latest": "Terbaru"
+    },
+    "categories": {
+      "tutorial": "Tutorial",
+      "karir": "Karir",
+      "projects": "Project Stories",
+      "review": "Tech Review",
+      "refleksi": "Refleksi"
+    },
+    "meta": {
+      "readingTime": "menit baca",
+      "publishedOn": "Dipublikasikan pada",
+      "by": "Oleh",
+      "in": "dalam",
+      "tags": "Tags"
+    },
+    "actions": {
+      "readMore": "Baca Selengkapnya",
+      "backToBlog": "Kembali ke Blog",
+      "share": "Bagikan",
+      "loadMore": "Muat Artikel Lainnya"
+    },
+    "newsletter": {
+      "title": "Tetap Update",
+      "subtitle": "Dapatkan artikel dan tutorial terbaru langsung ke inbox Anda.",
+      "placeholder": "Email Anda...",
+      "subscribe": "Subscribe"
+    },
+    "relatedPosts": "Artikel Terkait",
+    "noResults": {
+      "title": "Tidak ada artikel ditemukan",
+      "subtitle": "Coba sesuaikan kriteria pencarian atau filter Anda."
+    }
+  },
   "footer": {
     "links": {
       "home": "Beranda",

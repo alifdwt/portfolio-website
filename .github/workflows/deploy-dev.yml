@@ -1,0 +1,107 @@
+name: Deploy to Development (Dev Branch)
+
+on:
+  push:
+    branches: [dev]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run linting
+        run: pnpm lint
+
+      - name: Run type checking
+        run: pnpm type-check
+
+      - name: Build application (for testing)
+        run: pnpm build
+
+      - name: Log in to Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=ref,event=branch
+            type=sha,prefix=dev-{{date 'YYYYMMDD'}}-
+            type=raw,value=dev
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Deploy to VPS Dev Environment
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 22
+          script: |
+            # Login to GHCR
+            echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+            # Navigate to project directory
+            cd ~/projects/portfolio-website
+
+            # Update docker-compose.yml if needed
+            git pull origin dev
+
+            # Stop existing container
+            docker compose stop portfolio-dev || true
+            docker compose rm -f portfolio-dev || true
+
+            # Remove old image
+            docker rmi ghcr.io/alifdwt/portfolio-website:dev || true
+
+            # Pull latest image
+            docker compose pull portfolio-dev
+
+            # Start new container
+            docker compose up -d portfolio-dev
+
+            # Clean up unused images
+            docker image prune -f
+
+            # Show container status
+            docker compose ps
+
+            # Health check
+            sleep 10
+            curl -f https://dev.alifdwt.com || curl -f http://localhost:3010 || echo "Health check failed, but container may still be starting"

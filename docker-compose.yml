@@ -1,0 +1,53 @@
+services:
+  # Production environment (main branch) - using GHCR
+  portfolio-main:
+    image: ghcr.io/alifdwt/portfolio-website:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_BASE_URL=https://alifdwt.com
+      - NEXT_PUBLIC_SITE_URL=https://alifdwt.com
+    restart: unless-stopped
+    networks:
+      - portfolio-network
+    container_name: portfolio-main
+
+  # Development environment (dev branch) - using GHCR
+  portfolio-dev:
+    image: ghcr.io/alifdwt/portfolio-website:dev
+    ports:
+      - "3010:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_BASE_URL=https://dev.alifdwt.com
+      - NEXT_PUBLIC_SITE_URL=https://dev.alifdwt.com
+    restart: unless-stopped
+    networks:
+      - portfolio-network
+    container_name: portfolio-dev
+
+  # Local development with hot reload (optional)
+  portfolio-local:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3020:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_BASE_URL=http://localhost:3020
+      - NEXT_PUBLIC_SITE_URL=http://localhost:3020
+    networks:
+      - portfolio-network
+    container_name: portfolio-local
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    profiles:
+      - local
+
+networks:
+  portfolio-network:
+    driver: bridge
