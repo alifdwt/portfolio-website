@@ -58,7 +58,7 @@
           "period": "August 2023 - May 2024",
           "positions": [
             {
-              "title": "Fullstack Developer Student",
+              "title": "Fullstack Developer Trainee",
               "period": "Aug 2023 - May 2024",
               "description": "Contributed to the development of multiple fullstack applications for web and mobile platforms, delivering clean, maintainable code and ensuring responsive, user-friendly interfaces. Collaborated in team settings and handled end-to-end features from design to deployment."
             }
@@ -371,6 +371,18 @@
       "title": "No articles found",
       "subtitle": "Try adjusting your search or filter criteria."
     }
+  },
+  "links": {
+    "metadata": {
+      "title": "Alif Dewantara - Links",
+      "description": "Find all of Alif Dewantara's important links in one place. Portfolio, projects, and social media."
+    },
+    "bio": "Halo-halo Bandung ibukota Priangan",
+    "links": {
+      "portfolio": "Portfolio Website",
+      "insandunia": "InsanDunia (on-development)"
+    },
+    "footer": "Created with ❤️ by Alif Dewantara"
   },
   "footer": {
     "links": {
