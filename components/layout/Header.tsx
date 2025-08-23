@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu, Twitter, Linkedin, Github, ExternalLink } from "lucide-react";
+import { Menu, Twitter, Linkedin, Github, Instagram } from "lucide-react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
@@ -38,7 +38,11 @@ export default function Header() {
       label: "LinkedIn",
     },
     { icon: Github, href: "https://github.com/alifdwt", label: "GitHub" },
-    { icon: ExternalLink, href: "https://alifdwt.github.io", label: "Website" },
+    {
+      icon: Instagram,
+      href: "https://www.instagram.com/alifdwt",
+      label: "Instagram",
+    },
   ];
 
   return (
@@ -72,7 +76,7 @@ export default function Header() {
                   rel="noopener noreferrer"
                   className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-gray-400 transition-all duration-200 hover:bg-white/20 hover:text-white"
                 >
-                  <Icon className="h-4 w-4 text-white" fill="currentColor" />
+                  <Icon className="h-4 w-4 text-white" />
                   <span className="sr-only">{social.label}</span>
                 </Link>
               );

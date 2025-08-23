@@ -58,7 +58,7 @@
           "period": "Agustus 2023 - Mei 2024",
           "positions": [
             {
-              "title": "Fullstack Developer Student",
+              "title": "Fullstack Developer Trainee",
               "period": "Ags 2023 - Mei 2024",
               "description": "Berkontribusi pada pengembangan beberapa aplikasi fullstack untuk platform web dan mobile, menghasilkan kode yang bersih dan mudah dipelihara serta memastikan interface yang responsif dan user-friendly. Berkolaborasi dalam pengaturan tim dan menangani fitur end-to-end dari desain hingga deployment."
             }
@@ -370,6 +370,18 @@
       "title": "Tidak ada artikel ditemukan",
       "subtitle": "Coba sesuaikan kriteria pencarian atau filter Anda."
     }
+  },
+  "links": {
+    "metadata": {
+      "title": "Alif Dewantara - Tautan",
+      "description": "Temukan semua tautan penting Alif Dewantara dalam satu tempat. Portofolio, proyek, dan media sosial."
+    },
+    "bio": "Halo-halo Bandung ibukota Priangan",
+    "links": {
+      "portfolio": "Website Portofolio",
+      "insandunia": "InsanDunia (dalam pengembangan)"
+    },
+    "footer": "Dibuat dengan ❤️ oleh Alif Dewantara"
   },
   "footer": {
     "links": {
