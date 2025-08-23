@@ -7,7 +7,7 @@ import React from "react";
 
 import { routing } from "@/i18n/routing";
 
-import "../globals.css";
+import "@/styles/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 

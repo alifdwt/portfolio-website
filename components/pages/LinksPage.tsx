@@ -60,7 +60,7 @@ export default function LinksPage() {
   ];
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-orange-400 via-orange-500 to-orange-600 p-4">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-green-600 via-primary to-green-800 p-4">
       <div className="mx-auto max-w-md">
         <div className="overflow-hidden rounded-3xl bg-white/90 shadow-2xl backdrop-blur-sm">
           {/* Profile Section */}

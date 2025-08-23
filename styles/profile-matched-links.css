@@ -1,0 +1,285 @@
+.bg-profile-gradient {
+  background: linear-gradient(
+    45deg,
+    #4fd1c7,
+    #2c5f6b,
+    #1a4c5c,
+    #4fd1c7,
+    #7fdbda,
+    #ff7f7f,
+    #2c5f6b,
+    #4fd1c7
+  );
+  background-size: 400% 400%;
+}
+
+.animate-profile-shift {
+  animation: profileGradientShift 18s ease infinite;
+}
+
+@keyframes profileGradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+}
+
+.animate-float-organic-1 {
+  animation: floatOrganic1 12s ease-in-out infinite;
+}
+.animate-float-organic-2 {
+  animation: floatOrganic2 14s ease-in-out infinite;
+}
+.animate-float-organic-3 {
+  animation: floatOrganic3 16s ease-in-out infinite;
+}
+
+@keyframes floatOrganic1 {
+  0%,
+  100% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(25px, -20px) scale(1.1) rotate(120deg);
+  }
+  66% {
+    transform: translate(-15px, 25px) scale(0.9) rotate(240deg);
+  }
+}
+
+@keyframes floatOrganic2 {
+  0%,
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(-30px, -30px) scale(1.2);
+  }
+}
+
+@keyframes floatOrganic3 {
+  0%,
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  25% {
+    transform: translate(20px, -35px) rotate(90deg);
+  }
+  75% {
+    transform: translate(-25px, 15px) rotate(270deg);
+  }
+}
+
+.teal-pattern {
+  background-image: linear-gradient(
+      60deg,
+      transparent 40%,
+      rgba(79, 209, 199, 0.1) 49%,
+      rgba(79, 209, 199, 0.1) 51%,
+      transparent 60%
+    ),
+    linear-gradient(
+      -60deg,
+      transparent 40%,
+      rgba(44, 95, 107, 0.08) 49%,
+      rgba(44, 95, 107, 0.08) 51%,
+      transparent 60%
+    );
+  background-size: 80px 80px;
+  animation: tealPatternShift 25s linear infinite;
+}
+
+@keyframes tealPatternShift {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(80px, 80px);
+  }
+}
+
+.profile-texture {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='tealNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.3 0 0 0 0 0.8 0 0 0 0 0.8 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23tealNoise)'/%3E%3C/svg%3E");
+}
+
+.teal-ray-1 {
+  position: absolute;
+  top: 15%;
+  left: -50%;
+  width: 200%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(79, 209, 199, 0.8),
+    transparent
+  );
+  animation: tealRay1 10s ease-in-out infinite;
+  transform: rotate(20deg);
+}
+
+.teal-ray-2 {
+  position: absolute;
+  top: 70%;
+  left: -50%;
+  width: 200%;
+  height: 1.5px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(127, 219, 218, 0.6),
+    transparent
+  );
+  animation: tealRay2 14s ease-in-out infinite;
+  transform: rotate(-25deg);
+}
+
+.orange-accent-ray {
+  position: absolute;
+  top: 45%;
+  left: -50%;
+  width: 200%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 127, 127, 0.5),
+    transparent
+  );
+  animation: orangeRay 12s ease-in-out infinite;
+  transform: rotate(35deg);
+}
+
+@keyframes tealRay1 {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateX(-100%) rotate(20deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0%) rotate(20deg);
+  }
+}
+
+@keyframes tealRay2 {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateX(100%) rotate(-25deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0%) rotate(-25deg);
+  }
+}
+
+@keyframes orangeRay {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateX(-100%) rotate(35deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0%) rotate(35deg);
+  }
+}
+
+.animate-teal-shimmer {
+  animation: tealShimmer 4s ease-in-out infinite;
+}
+
+@keyframes tealShimmer {
+  0%,
+  100% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-teal-glow {
+  animation: tealGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes tealGlow {
+  0% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-teal {
+  animation: pulseTeal 5s ease-in-out infinite;
+}
+
+.animate-pulse-teal-slow {
+  animation: pulseTeal 7s ease-in-out infinite;
+}
+
+.animate-pulse-teal-slower {
+  animation: pulseTeal 9s ease-in-out infinite;
+}
+
+@keyframes pulseTeal {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+.animate-teal-particle {
+  animation: tealParticle 0.8s ease-out forwards;
+}
+
+@keyframes tealParticle {
+  0% {
+    opacity: 0;
+    transform: translateY(0px) scale(0);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px) translateX(15px) scale(0);
+  }
+}
+
+/* Custom coral color for variety */
+/* .bg-gradient-to-r.from-orange-400\\/70.to-coral-500\\/70 {
+  background: linear-gradient(
+    to right,
+    rgba(255, 107, 53, 0.7),
+    rgba(255, 127, 127, 0.7)
+  );
+} */
+
+@media (max-width: 640px) {
+  .teal-ray-1,
+  .teal-ray-2,
+  .orange-accent-ray {
+    display: none;
+  }
+}
