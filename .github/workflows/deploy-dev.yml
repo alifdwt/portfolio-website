@@ -80,9 +80,15 @@ jobs:
             # Navigate to project directory
             cd ~/projects/portfolio-website
 
+            # Update docker-compose.yml if needed
+            git pull origin dev
+
             # Stop existing container
             docker compose stop portfolio-dev || true
             docker compose rm -f portfolio-dev || true
+
+            # Remove old image
+            docker rmi ghcr.io/alifdwt/portfolio-website:dev || true
 
             # Pull latest image
             docker compose pull portfolio-dev
@@ -95,3 +101,7 @@ jobs:
 
             # Show container status
             docker compose ps
+
+            # Health check
+            sleep 10
+            curl -f https://dev.alifdwt.com || curl -f http://localhost:3010 || echo "Health check failed, but container may still be starting"
