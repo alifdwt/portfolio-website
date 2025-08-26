@@ -1,15 +1,13 @@
-// app/[locale]/layout.tsx
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+import React from "react";
 
-import Footer from "@/components/layout/Footer";
-import Header from "@/components/layout/Header";
 import { routing } from "@/i18n/routing";
 
-import "../globals.css";
+import "@/styles/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -57,13 +55,7 @@ export default async function LocaleLayout({
     <html lang={locale} suppressHydrationWarning>
       <body className={inter.className}>
         <NextIntlClientProvider messages={messages}>
-          <div className="min-h-screen bg-background">
-            <Header />
-
-            <main>{children}</main>
-
-            <Footer />
-          </div>
+          {children}
         </NextIntlClientProvider>
       </body>
     </html>
