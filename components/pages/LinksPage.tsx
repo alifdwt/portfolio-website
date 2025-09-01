@@ -32,6 +32,10 @@ export default function LinksPage() {
       href: "https://alifdwt.com",
     },
     {
+      title: t("links.curriculumVitae"),
+      href: "https://drive.google.com/file/d/1x-CftJbRHruWmkhv8LCkegx-futTu3b_/view?usp=sharing",
+    },
+    {
       title: "LyricsTranslate",
       href: "https://lyricstranslate.com/en/translator/alif-putra-dewantara",
     },
