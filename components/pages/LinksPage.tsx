@@ -1,4 +1,10 @@
-import { Twitter as XIcon, Instagram, Github, Music } from "lucide-react";
+import {
+  Twitter as XIcon,
+  Instagram,
+  Github,
+  Music,
+  LinkedinIcon,
+} from "lucide-react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 
@@ -46,6 +52,11 @@ export default function LinksPage() {
       icon: Instagram,
       href: "https://www.instagram.com/alifdwt/",
       label: "Instagram",
+    },
+    {
+      icon: LinkedinIcon,
+      href: "https://linkedin.com/in/alifdwt",
+      label: "LinkedIn",
     },
     {
       icon: Music,
