@@ -1,4 +1,10 @@
-import { Twitter as XIcon, Instagram, Github, Music } from "lucide-react";
+import {
+  Twitter as XIcon,
+  Instagram,
+  Github,
+  Music,
+  LinkedinIcon,
+} from "lucide-react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 
@@ -26,6 +32,10 @@ export default function LinksPage() {
       href: "https://alifdwt.com",
     },
     {
+      title: t("links.curriculumVitae"),
+      href: "https://drive.google.com/file/d/1x-CftJbRHruWmkhv8LCkegx-futTu3b_/view?usp=sharing",
+    },
+    {
       title: "LyricsTranslate",
       href: "https://lyricstranslate.com/en/translator/alif-putra-dewantara",
     },
@@ -46,6 +56,11 @@ export default function LinksPage() {
       icon: Instagram,
       href: "https://www.instagram.com/alifdwt/",
       label: "Instagram",
+    },
+    {
+      icon: LinkedinIcon,
+      href: "https://linkedin.com/in/alifdwt",
+      label: "LinkedIn",
     },
     {
       icon: Music,

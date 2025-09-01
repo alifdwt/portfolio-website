@@ -1,3 +1,4 @@
+import { ContactIcon, FileIcon } from "lucide-react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 
@@ -62,14 +63,24 @@ export default function Hero() {
                 {t("description")}
               </p>
 
-              {/* CTA Button */}
-              <Link
-                href="#contact"
-                className="inline-flex transform items-center rounded bg-gradient-to-r from-[#dcf2b0] to-[#8df5a3] px-6 py-3 text-sm font-semibold text-black shadow-lg transition-all duration-300 hover:scale-105 hover:from-[#8df5a3] hover:to-[#dcf2b0] hover:shadow-xl md:text-base"
-              >
-                {t("cta")}
-                <span className="ml-2">→</span>
-              </Link>
+              <div className="flex items-center justify-end gap-4">
+                <Link
+                  href="https://drive.google.com/file/d/1x-CftJbRHruWmkhv8LCkegx-futTu3b_/view?usp=sharing"
+                  className="inline-flex transform items-center rounded bg-gradient-to-r from-[#dcf2b0] to-[#8df5a3] px-6 py-3 text-sm font-semibold text-black shadow-lg transition-all duration-300 hover:scale-105 hover:from-[#8df5a3] hover:to-[#dcf2b0] hover:shadow-xl md:text-base"
+                  target="_blank"
+                >
+                  {t("viewResume")}
+                  <FileIcon className="ml-2 size-4" />
+                </Link>
+                {/* CTA Button */}
+                <Link
+                  href="#contact"
+                  className="inline-flex transform items-center rounded bg-gradient-to-r from-[#dcf2b0] to-[#8df5a3] px-6 py-3 text-sm font-semibold text-black shadow-lg transition-all duration-300 hover:scale-105 hover:from-[#8df5a3] hover:to-[#dcf2b0] hover:shadow-xl md:text-base"
+                >
+                  {t("cta")}
+                  <ContactIcon className="ml-2 size-4" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
