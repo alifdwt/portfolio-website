@@ -12,6 +12,7 @@
     "role": "A Fullstack Developer",
     "description": "based in Bogor, West Java. I strives to build scalable and efficient web and mobile applications through carefully crafted modern technology solutions.",
     "cta": "Let's Work Together",
+    "viewResume": "View My Resume",
     "viewWork": "View My Work",
     "scrollDown": "Scroll Down"
   },
@@ -380,6 +381,7 @@
     "bio": "Halo-halo Bandung ibukota Priangan",
     "links": {
       "portfolio": "Portfolio Website",
+      "curriculumVitae": "Curriculum Vitae",
       "insandunia": "InsanDunia (on-development)"
     },
     "footer": "Created with ❤️ by Alif Dewantara"
