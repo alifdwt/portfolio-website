@@ -43,12 +43,12 @@
               "description": "Saya memimpin pengembangan solusi Single Sign-On untuk seluruh perusahaan, sendirian. Dibangun dengan Next.js (SSR), Golang Fiber, dan PostgreSQL, sistem ini menyatukan login di berbagai tools internal, terinspirasi dari platform akun Mekari. Sepanjang perjalanan, saya juga berkontribusi pada Xperd, sistem ERP internal kami yang setara dengan Mekari Jurnal. Dari menulis baris kode pertama hingga deployment di VPS dengan Docker dan GitHub Actions, saya menguasai seluruh prosesnya."
             },
             {
-              "title": "Frontend Web Developer",
+              "title": "Fullstack Web Developer",
               "period": "Mar 2025 - Mei 2025",
-              "description": "Selanjutnya datang proyek untuk Universitas Siber Asia, di mana kami membangun tiga aplikasi web terintegrasi: LMS, portal akademik, dan sistem SSO. Menggunakan Next.js (TypeScript) dan Bootstrap 5, saya memastikan setiap layar ramah mobile dan konsisten dengan branding universitas. Tujuan kami ambisius: mengurangi ketergantungan pada layanan edtech pihak ketiga yang mahal dengan biaya ~IDR 40M/bulan."
+              "description": "Selanjutnya datang proyek untuk Universitas Siber Asia, di mana kami membangun tiga aplikasi web terintegrasi: LMS, portal akademik, dan sistem SSO. Menggunakan Next.js (TypeScript) dan Golang Fiber, saya memastikan setiap layar ramah mobile dan konsisten dengan branding universitas. Tujuan kami ambisius: mengurangi ketergantungan pada layanan edtech pihak ketiga yang mahal dengan biaya ~IDR 40M/bulan."
             },
             {
-              "title": "Frontend Developer",
+              "title": "Fullstack Developer",
               "period": "Jun 2024 - Mar 2025",
               "description": "Salah satu tantangan pertama saya adalah membantu Binasentra Purna beralih dari platform manajemen asuransi yang lambat dan usang. Dari repository kosong, saya membangun seluruh frontend dalam Next.js (TypeScript) dengan Tailwind CSS, mengubah desain Figma menjadi halaman yang responsif, accessible, dan cepat dimuat. Bekerja erat dengan tim backend Golang, kami menghubungkan setiap fitur inti dan men-deploy melalui Docker dan GitHub Actions."
             }
@@ -56,12 +56,17 @@
         },
         {
           "name": "PT. Dumbways Indonesia Teknologi",
-          "period": "Agustus 2023 - Mei 2024",
+          "period": "January 2023 - Mei 2024",
           "positions": [
             {
-              "title": "Fullstack Developer Trainee",
+              "title": "Fullstack Developer",
               "period": "Ags 2023 - Mei 2024",
               "description": "Berkontribusi pada pengembangan beberapa aplikasi fullstack untuk platform web dan mobile, menghasilkan kode yang bersih dan mudah dipelihara serta memastikan interface yang responsif dan user-friendly. Berkolaborasi dalam pengaturan tim dan menangani fitur end-to-end dari desain hingga deployment."
+            },
+            {
+              "title": "Fullstack Developer Trainee",
+              "period": "Jan 2023 - May 2024",
+              "description": "Mengembangkan dan mempublikasikan beberapa aplikasi web full-scak, termasuk platform faktur pintar, aplikasi HRIS, dan landing page untuk agensi digital. Berkontribusi pada optimalisasi dan penerapan praktik terbaik di seluruh siklus pengembangan front-end dan back-end"
             }
           ]
         }
