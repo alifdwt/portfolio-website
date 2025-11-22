@@ -1,3 +1,4 @@
+import { GoogleTagManager } from "@next/third-parties/google";
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { notFound } from "next/navigation";
@@ -53,6 +54,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
+      <GoogleTagManager gtmId="GTM-KDNMZ4NQ" />
       <body className={inter.className}>
         <NextIntlClientProvider messages={messages}>
           {children}
