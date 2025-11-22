@@ -21,19 +21,13 @@ export default function Footer() {
         { name: t("footer.links.page404"), href: "#404" },
       ],
     },
-    {
-      title: "",
-      links: [
-        { name: t("footer.links.styleGuide"), href: "#style" },
-        { name: t("footer.links.changelog"), href: "#changelog" },
-        { name: t("footer.links.license"), href: "#license" },
-      ],
-    },
   ];
 
   const socialLinks = [
-    { name: t("footer.social.behance"), href: "https://behance.net/alifdwt" },
-    { name: t("footer.social.dribbble"), href: "https://dribbble.com/alifdwt" },
+    {
+      name: t("footer.social.github"),
+      href: "https://github.com/alifdwt",
+    },
     {
       name: t("footer.social.linkedin"),
       href: "https://linkedin.com/in/alifdwt",
