@@ -6,9 +6,9 @@ import { getPostsByCategory, getCategories } from "@/lib/blog";
 export async function generateStaticParams({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: { locale: string };
 }) {
-  const { locale } = await params;
+  const { locale } = params;
   const categories = await getCategories(locale as "en" | "id");
 
   return categories.map((category) => ({
