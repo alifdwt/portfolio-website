@@ -89,7 +89,7 @@ export default function Hero() {
         <ScrollIndicator text={t("scrollDown")} />
 
         {/* Portfolio Preview Cards */}
-        <div className="-mt-16 grid grid-cols-1 items-end gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="-mt-16 hidden items-end gap-6 md:grid md:grid-cols-2 lg:grid-cols-4">
           {portfolioCards.map((card, index) => (
             <div key={card.id} className="group relative cursor-pointer">
               {/* Card dengan bentuk unik seperti design reference */}
