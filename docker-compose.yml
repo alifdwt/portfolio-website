@@ -3,7 +3,7 @@ services:
   portfolio-main:
     image: ghcr.io/alifdwt/portfolio-website:latest
     ports:
-      - "3000:3000"
+      - "3005:3000"
     environment:
       - NODE_ENV=production
       - NEXT_PUBLIC_BASE_URL=https://alifdwt.com
