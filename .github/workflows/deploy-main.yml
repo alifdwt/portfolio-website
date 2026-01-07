@@ -1,4 +1,4 @@
-name: Deploy to Production (Main Branch)
+name: Deploy Portfolio (Production)
 
 on:
   push:
@@ -10,53 +10,60 @@ env:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    name: Build & Deploy (Production)
+    runs-on: [self-hosted, linux, homelab]
+
     permissions:
       contents: read
       packages: write
 
     steps:
+      # 1. Checkout source code
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Enable Corepack
-        run: corepack enable
-
+      # 2. Setup Node.js (noop on self-hosted, OK for consistency)
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "22"
           cache: "pnpm"
 
+      # 3. Install dependencies
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      # 4. Lint & type check
       - name: Run linting
         run: pnpm lint
 
       - name: Run type checking
         run: pnpm type-check
 
-      - name: Build application (for testing)
+      # 5. Build app (sanity check)
+      - name: Build application
         run: pnpm build
 
-      - name: Log in to Container Registry
+      # 6. Login to GHCR (for build & push)
+      - name: Log in to GHCR
         uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract metadata
+      # 7. Docker image metadata (latest for prod)
+      - name: Extract Docker metadata
         id: meta
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
             type=ref,event=branch
-            type=sha,prefix=main-{{date 'YYYYMMDD'}}-
+            type=sha,prefix=main-
             type=raw,value=latest,enable={{is_default_branch}}
 
+      # 8. Build & push Docker image
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
@@ -66,32 +73,39 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-      - name: Deploy to VPS
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USERNAME }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          port: 22
-          script: |
-            # Login to GHCR
-            echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      # 9. Deploy locally on home server (NO SSH)
+      - name: Deploy portfolio MAIN locally
+        run: |
+          echo "🔐 Login to GHCR"
+          echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-            # Navigate to project directory
-            cd ~/projects/portfolio-website
+          echo "📁 Prepare project directory"
+          mkdir -p ~/projects/portfolio-website
+          cd ~/projects/portfolio-website
 
-            # Stop existing container
-            docker compose stop portfolio-main || true
-            docker compose rm -f portfolio-main || true
+          echo "🛑 Stop existing production container (if any)"
+          docker compose stop portfolio-main || true
+          docker compose rm -f portfolio-main || true
 
-            # Pull latest image
-            docker compose pull portfolio-main
+          echo "⬇️ Pull latest production image"
+          docker pull ghcr.io/${{ github.repository }}:latest
 
-            # Start new container
-            docker compose up -d portfolio-main
+          echo "🚀 Start production container"
+          docker compose up -d portfolio-main
 
-            # Clean up unused images
-            docker image prune -f
+          echo "🧹 Cleanup unused images"
+          docker image prune -f
 
-            # Show container status
-            docker compose ps
+          echo "📦 Container status"
+          docker compose ps
+
+      # 10. Local health check (optional but recommended)
+      - name: Health check (local)
+        run: |
+          echo "⏳ Waiting for app to be ready..."
+          sleep 10
+          curl -f http://localhost:3005 || (
+            echo "❌ Health check failed"
+            docker logs portfolio-main
+            exit 1
+          )
