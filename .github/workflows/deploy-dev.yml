@@ -23,8 +23,8 @@ jobs:
         uses: actions/checkout@v4
 
       # 2. Enable Corepack (pnpm)
-      - name: Enable Corepack
-        run: corepack enable
+      # - name: Enable Corepack
+      #   run: corepack enable
 
       # 3. Setup Node.js
       - name: Setup Node.js
