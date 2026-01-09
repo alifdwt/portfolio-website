@@ -7,100 +7,41 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
+  IMAGE_TAG: latest
 
 jobs:
-  build-and-deploy:
-    name: Build & Deploy (Production)
-    runs-on: [self-hosted, linux, homelab]
+  deploy:
+    name: Deploy to Home Server (Production)
+    runs-on: [self-hosted, linux, homelab, deploy]
 
     permissions:
       contents: read
-      packages: write
+      packages: read
 
     steps:
-      # 1. Checkout source code
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      # 2. Setup Node.js (noop on self-hosted, OK for consistency)
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-          cache: "pnpm"
-
-      # 3. Install dependencies
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      # 4. Lint & type check
-      - name: Run linting
-        run: pnpm lint
-
-      - name: Run type checking
-        run: pnpm type-check
-
-      # 5. Build app (sanity check)
-      - name: Build application
-        run: pnpm build
-
-      # 6. Login to GHCR (for build & push)
       - name: Log in to GHCR
-        uses: docker/login-action@v3
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      # 7. Docker image metadata (latest for prod)
-      - name: Extract Docker metadata
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-          tags: |
-            type=ref,event=branch
-            type=sha,prefix=main-
-            type=raw,value=latest,enable={{is_default_branch}}
-
-      # 8. Build & push Docker image
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-
-      # 9. Deploy locally on home server (NO SSH)
-      - name: Deploy portfolio MAIN locally
         run: |
-          echo "🔐 Login to GHCR"
-          echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+          echo "${{ secrets.GHCR_TOKEN }}" \
+            | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-          echo "📁 Prepare project directory"
+      - name: Prepare project directory
+        run: |
           mkdir -p ~/projects/portfolio-website
           cd ~/projects/portfolio-website
 
-          echo "🛑 Stop existing production container (if any)"
-          docker compose stop portfolio-main || true
-          docker compose rm -f portfolio-main || true
+      - name: Pull latest production image
+        run: |
+          docker pull $REGISTRY/$IMAGE_NAME:$IMAGE_TAG
 
-          echo "⬇️ Pull latest production image"
-          docker pull ghcr.io/${{ github.repository }}:latest
-
-          echo "🚀 Start production container"
+      - name: Restart production container
+        run: |
+          cd ~/projects/portfolio-website
           docker compose up -d portfolio-main
 
-          echo "🧹 Cleanup unused images"
-          docker image prune -f
+      - name: Cleanup unused images
+        run: docker image prune -f
 
-          echo "📦 Container status"
-          docker compose ps
-
-      # 10. Local health check (optional but recommended)
-      - name: Health check (local)
+      - name: Health check
         run: |
           echo "⏳ Waiting for app to be ready..."
           sleep 10
